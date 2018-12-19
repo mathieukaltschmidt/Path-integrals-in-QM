@@ -1,0 +1,186 @@
+\section{Die Idee des Pfadintegral-Formalismus}
+\begin{frame}{Die Idee des Pfadintegral-Formalismus}
+
+\metroset{block=fill}
+\begin{block}{Grundlegende Fragestellung}
+	Was ist die \textbf{Wahrscheinlichkeitsamplitude} für den Übergang von $(q_a, t_a)$ nach $(q_b, t_b)$ für $t_b>t_a$.  
+\end{block}
+\textbf{Feynman's Ideen von 1948}
+\begin{itemize}
+	\item Die Amplitude bezeichnet man als \textbf{Kernel }$K(b,a)$:
+	\begin{align*}
+		K(b,a) = \sum_{\text{alle Pfade}}\phi[q(t)]
+	\end{align*}
+	\item Beitrag eines einzelnen Pfades:
+	\begin{align*}
+		\phi[q(t)] \sim N \cdot \exp\left(\frac{\mathrm{i}}{\hbar}\mathcal{S}[q(t)]\right) 
+	\end{align*}
+	\item  Wahrscheinlichkeit für den Übergang:
+	\begin{align*}
+	 P(b,a) = \abs{K(b,a)}^2 
+	 \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Ausgangslage für unsere Herleitung}
+Interessant ist die Analyse der \textbf{Übergangsamplitude}:
+\begin{align*}
+\braket{q_b,t_b}{q_a,t_a} = \bra{q_b}\exp\left(-\mathrm{i} \hat{\text{H}}(t_b-t_a)\right)\ket{q_a}
+\end{align*}
+
+\textbf{Einige hilfreiche Identitäten}:
+\vfill 
+\begin{itemize}
+\item Identität im Orstraum: $\mathrm{1\!l} = \int\dd q_k \ \ket{q_k}\bra{q_k} $
+\vfill 
+\item Baker-Hausdorff-Campbell: $\operatorname{e}^{A+B} = \operatorname{e}^{A}\operatorname{e}^{B}\operatorname{e}^{-\frac{1}{2}[A+B] + \cdots} $
+\vfill 
+\item Basistransformation: $\braket{p_k}{q_k} = \frac{1}{\sqrt{2\pi}}\operatorname{e}^{-{\mathrm{i}p_kq_k}}$
+\end{itemize}
+\end{frame}
+
+%Hier startet der Tafelvortrag
+
+%Visualisierung während der Herleitung an der Tafel 
+\begin{frame}{Die Idee des Pfadintegral-Formalismus}
+\begin{figure}
+\centering
+\begin{tikzpicture}
+
+%Koordinatensystem
+\draw[->, thick] (0,0) to (10,0);
+\node at (10.3,0) {\Large$q$};
+\draw[->, thick] (0,0) to (0,6.5);
+\node at (0,6.8) {\Large$t$};
+
+%Horizontale Linien
+\draw[-, thick, dashed] (0,1) to (10,1);
+\draw[-, thick, dashed] (0,2) to (10,2);
+\draw[-, thick, dashed] (0,3) to (10,3);
+\draw[-, thick, dashed] (0,4) to (10,4);
+\draw[-, thick, dashed] (0,5) to (10,5);
+\draw[-, thick, dashed] (0,6) to (10,6);
+
+
+%Punkte
+\node at (2.95,0.7) {\Large$a$};
+\filldraw (3,1)   circle (2pt);
+\filldraw (6,2)   circle (2pt);
+\filldraw (6.5,3)   circle (2pt);
+\filldraw (5,4)   circle (2pt);
+\filldraw (4,5)   circle (2pt);
+\filldraw (5.5,6)   circle (2pt);
+\node at (5.55,6.4) {\Large$b$};
+
+%Verbindungen
+\draw[-, thick] (3,1) to (6,2);
+\draw[-, thick] (6,2) to (6.5,3);
+\draw[-, thick] (6.5,3) to (5,4);
+\draw[-, thick] (5,4) to (4,5);
+\draw[-, thick] (4,5) to (5.5,6);
+
+%Markierung 
+\draw[<->, ultra thick, color = myred] (2.5,3) to (2.5,4);
+\node at (2.8,3.5) {\color{myred}\Large$\delta$t};
+
+\end{tikzpicture}
+\caption{Konstruktion der "Summe über alle Pfade"}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Übergang zu zwei und mehr Events}
+\begin{figure}
+\centering
+\begin{tikzpicture}
+
+%Koordinatensystem
+\draw[->, thick] (0,0) to (10,0);
+\node at (10.3,0) {\Large$q$};
+\draw[->, thick] (0,0) to (0,6.5);
+\node at (0,6.8) {\Large$t$};
+
+
+%Domain 
+\filldraw[color=myred!30] (5,3) ellipse (3.5cm and 2.5 cm);
+\draw[-, thick] (5,3) ellipse (3.5cm and 2.5 cm);
+
+%Horizontale Linie
+\draw[-, thick, dashed] (0,3) to (10,3);
+\node at (0.3,3.3) {\Large$t_k$};
+
+%Beschriftung 
+\node at (8,6) {\Large Ereignisbereich $R$};
+\node at (5,4.5) {\Large $R \ ''$};
+\node at (5,1.5) {\Large  $R \ '$};
+
+\end{tikzpicture}
+\caption{Zerlegung des Ereignisraumes}
+\end{figure}
+\end{frame}
+\begin{frame}{Übergang zu zwei und mehr Events}
+\begin{figure}
+\centering
+\begin{tikzpicture}
+%Koordinatensystem
+\draw[->, thick] (0,0) to (10,0);
+\node at (10.3,0) {\Large$q$};
+\draw[->, thick] (0,0) to (0,6.5);
+\node at (0,6.8) {\Large$t$};
+
+%Einzelspalt
+%\node at (-0.3,3) {$t_c$};
+\draw[-, ultra thick] (0,3) to (4.7,3);
+\draw[-, ultra thick] (5.3,3) to (10,3);
+
+%Punkte und Verbindungen
+\draw[-,thick, color = myred] (2,1) to (5,3);
+\draw[-,thick, dashed, bend angle = 20, bend right] (2,1) to (5,3);
+\draw[-,thick, dashed, bend angle = 20, bend left] (2,1) to (5,3);
+\draw[-,thick, dashed, bend angle = 50, bend right] (2,1) to (5,3);
+\draw[-,thick, dashed, bend angle = 80, bend right] (2,1) to (5,3);
+
+
+\draw[-,thick, color = myred] (5,3) to (4,6);
+\draw[-,thick, dashed, bend angle = 20, bend right] (5,3) to (4,6);
+\draw[-,thick, dashed, bend angle = 60, bend left] (5,3) to (4,6);
+\draw[-,thick, dashed, bend angle = 45, bend right] (5,3) to (4,6);
+\draw[-,thick, dashed, bend angle = 20, bend left] (5,3) to (4,6);
+
+\filldraw (2,1) circle (2pt);
+\filldraw (5,3) circle (2pt);
+\filldraw (4,6) circle (2pt);
+\end{tikzpicture}
+\caption{Einzelspalt zur Veranschaulichung der Idee von Multi-Events}
+\end{figure}
+\end{frame}
+\begin{frame}{Wichtiges Zwischenergebnis}
+\metroset{block=fill}
+\begin{block}{Formale Definition des Pfadintegrals}
+\begin{align*}
+	K(b,a) &= \braket{q_b,t_b}{q_a,t_a}\\
+	&= \int_a^b \mathcal{D}[q(t)] \exp\left(\frac{\mathrm{i}}{\hbar}\int_{t_a}^{t_b}\dd t \ \mathcal{L}(q(t),\dot{q}(t))\right)
+\end{align*}
+\end{block}
+Im nächsten Schritt untersuchen wir den Fall eines allgemeinen Hamiltonians der Form:
+\begin{align*}
+	\hat{\text{H}}(p,q) = \frac{p^2}{2m} + V(q) 
+\end{align*}
+Wir benötigen die Definition des \textbf{Gaußintegrals}: 
+\begin{align*}
+	\int_{-\infty}^{\infty}\dd q \exp\left(-\frac{1}{2}a q^2 + b q\right) = \sqrt{\frac{2\pi}{a}}\exp\left(\frac{b^2}{2a}\right) \quad \text{mit } \mathfrak{Re}(a)>0 
+\end{align*}
+\end{frame}
+
+%Nächster Teil an der Tafel (kurz!!!)
+
+\begin{frame}{Ergebnis der Herleitung}
+Endergebnis der Herleitung für einen Hamiltonian der Form $\frac{p^2}{2m} + V(q)$:
+\metroset{block=fill}
+\begin{block}{Feynman-Kac-Formel}
+\begin{align*}
+	 \braket{q_b,t_b}{q_a,t_a} &= \lim_{N \rightarrow\infty} \gamma^{N+1}\prod_{k=1}^{N} \int\dd q_k \exp\left(\mathrm{i}\int_{t_a}^{t_b}\dd t \ \mathcal{L}(p,q)\right) \\
+	 &\equiv \int_{q(t_a)}^{q(t_b)} \mathcal{D}q(t) \exp\left(\mathrm{i}\int_{t_a}^{t_b}\dd t \ \mathcal{L}(p,q)\right)
+\end{align*}	
+\end{block}
+	
+\end{frame}

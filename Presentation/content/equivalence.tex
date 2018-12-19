@@ -1,0 +1,46 @@
+\section{Kommutatorrelation im Pfadintegralformalismus}
+\begin{frame}{Wo versteckt sich die Kommutatorrelation?}
+\metroset{block=fill}
+\begin{block}{Ein grundlegendes Problem?}
+	Ein zentraler Fakt in der Quantenmechanik war bisher:
+	\begin{align*}
+		[p,q] = -\mathrm{i}\hbar
+	\end{align*}
+	Wo finden wir die kanonische Kommutatorrelation im Pfadintegral-Formalismus?
+\end{block}
+\end{frame}
+
+\begin{frame}{Wo versteckt sich die Kommutatorrelation?}
+\textbf{Vorgehensweise, basierend auf \cite{Ong}:}
+\begin{enumerate}
+	\item Aufspalten des Pfadintegrals im Zeitintervall $[0,T]$:\begin{align*}
+	\int_{(q_a,0)}^{(q_b,T)} \dd q \operatorname{e}^{\mathrm{i}\mathcal{S}}q(t) &= \int \dd q \braket{q_b,T}{q,t}q\braket{q,t}{q_a,0} \\ &= \int \dd q \bra{q_b,T}\ \tilde{q}(t)\ \ket{q,t}\braket{q,t}{q_a,0} \\ &= \bra{q_b,T}\ \tilde{q}(t)\ \ket{q_a,0}
+		\end{align*}
+	\item Analog: Produkt von zwei eingefügten q`s:
+	\begin{align*}
+		\int_{(q_a,0)}^{(q_b,T)} \dd q \operatorname{e}^{\mathrm{i}\mathcal{S}}q(t)q(t') = \bra{q_b,T} \underbrace{\ \hat{\operatorname{T}}\ \left[\hat{q}(t) \ \hat{q}(t')\right] \ }_{= \theta(t-t')q(t)q(t') + \theta(t'-t)q(t)q(t)}\ket{q_a,0}
+	\end{align*}
+	\item Partielle Integration liefert:
+	\begin{align*}
+\left\langle\psi_b\left|\frac{\delta F}{\delta q_k}\right|\psi_a\right\rangle = -\frac{\mathrm{i}}{\hbar} \left\langle\psi_b\left|F \frac{\delta \mathcal{S}}{\delta q_k}\right|\psi_a\right\rangle
+	\end{align*}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Wo versteckt sich die Kommutatorrelation?}
+\textbf{Vorgehensweise, basierend auf \cite{Ong}:}
+\begin{enumerate}
+	\item[4.] Diskretisiere $\mathcal{S}=\sum_k \mathcal{S}(q_{k+1},q_k) = \frac{m\varepsilon}{2}\left[\frac{q_{k+1}-q_k}{\varepsilon}\right]^2 - \varepsilon V(q_{k+1})$:
+	\begin{align*}
+		\mathrm{i}\hbar\frac{\delta F}{\delta q_k} \overset{S}{\longleftrightarrow} F\left[\frac{\delta\mathcal{S}(q_{k+1},q_k)}{\delta q_k} + \frac{\delta\mathcal{S}(q_{k},q_{k-1})}{\delta q_k}\right] 
+	\end{align*}
+	\item[5.] Wähle $F=q_k$ und vernachlässige Terme $\mathcal{O}(\varepsilon)$:
+	\begin{align*}
+		\underbrace{m\left(\frac{q_{k+1}-q_k}{\varepsilon}\right)}_{p_k}q_k - \underbrace{m\left(\frac{q_{k}-q_{k-1}}{\varepsilon}\right)}_{p_k}q_k  \overset{S}{\longleftrightarrow} -i\hbar
+	\end{align*}
+\end{enumerate}
+\metroset{block=fill}
+\begin{block}{\hfill Fazit \hfill}
+	 Die Kommutatorrelation versteckt sich also in der Diskretisierung und der sukzessiven Anwendung des Zeitordnungsoperators $\hat{\operatorname{T}}$! 
+\end{block}
+\end{frame}

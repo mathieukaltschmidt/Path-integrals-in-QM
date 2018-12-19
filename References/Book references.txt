@@ -1,0 +1,7 @@
+[3] C. Itzykson and J.B. Zuber, Quantum Field Theory (Kapitel 9-1), McGraw-Hill (1980)
+
+[4] Feynman-Hibbs, Quantum mechanics and path integrals, McGraw-Hill (1965)
+
+[5] S. Pokorski, Gauge field theories (Kapitel 2), Cambridge UP (1987)
+
+[6] R. Landau, Quantum Mechanics II (Kapitel 11), John Wiley and Sons (1996)

@@ -1,0 +1,179 @@
+\section{Der Harmonische Oszillator}
+\begin{frame}{Der Harmonische Oszillator}
+\metroset{block=fill}
+\begin{block}{\hfill Anwendung des erlernten Formalismus \hfill}
+Wir wollen nun das Erlernte benutzen um die Energie-Eigenwerte für das  Potential des harmonischen Oszillators zu bestimmen.
+\end{block}
+Wir kennen die den Lagrangian für dieses Problem: 
+\begin{align*}
+	\mathcal{L} = \frac{\dot{q}^2}{2m} - \frac{m\omega^2q^2}{2} 
+\end{align*}
+
+Wir schreiben die Pfade als Abweichungen vom klassischen Pfad:
+\begin{align*}
+	q(t) = q_{cl.}(t) + \eta(t)
+\end{align*}
+
+Klassische Lösung für $q(t_a) = q_a$ und $q(t_b) = q_b$:
+\begin{align*}
+	q_{cl.}(t) = \frac{\sin \omega(t_b-t)}{\sin \omega(t_b-t_a)} \cdot q_a + \frac{\sin \omega(t-t_a)}{\sin \omega(t_b-t_a)} \cdot q_b
+\end{align*}
+\end{frame}
+
+\begin{frame}{Mehler-Formel und Energiespektrum}
+%\metroset{block=fill}
+\begin{block}{\hfill Mehler-Formel für den harmonischen Oszillator\hfill }
+	\begin{align*}
+		\braket{q_b,t_b}{q_a,t_a} &= \sqrt{\frac{m\omega}{2\pi\mathrm{i}\hbar\sin(\omega T)}} \exp\left(\frac{\mathrm{i}}{\hbar}\mathcal{S}_{cl.} \right) \\ &= \sqrt{\frac{m\omega}{2\pi\mathrm{i}\hbar \sin(\omega T)}} \exp\left(\frac{\mathrm{i}m\omega}{2\hbar\sin(\omega T)}\left[(q_b^2+q_a^2)\cos(\omega T)- 2q_bq_a\right] \right)
+	\end{align*}
+\end{block}
+wobei $T = t_b-t_a = $ Periodendauer. 
+\vfill
+\begin{block}{\hfill Energiespektrum \hfill}
+Wir bilden die Spur des Zeitentwicklungsoperators:
+\begin{align*}
+	\operatorname{Tr}(U(T,0)) = \operatorname{Tr}\left(\exp\left(-\frac{\mathrm{i}}{\hbar}\hat{\text{H}}T\right)\right) 
+	= \sum_k \exp\left(-\frac{\mathrm{i}}{\hbar}E_k T \right)
+\end{align*}
+\end{block}	
+\end{frame}
+
+\begin{frame}{Mehler-Formel und Energiespektrum}
+\begin{align*}
+\operatorname{Tr}(U(T,0)) &= \int_{-\infty}^{\infty} \dd q \braket{q,T}{q,0}	\\
+&=  \sqrt{\frac{m\omega}{2\pi\mathrm{i}\hbar\sin(\omega T)}} \int_{-\infty}^{\infty} \dd q  \exp\left(\frac{\mathrm{i}m\omega}{2\hbar\sin(\omega T)}\left[2q^2(\cos(\omega T)- 1)\right] \right) \\
+&= \frac{1}{2\mathrm{i}\sin\left(\frac{\omega T}{2}\right)} \\
+&= \frac{\exp\left(-\mathrm{i}\frac{\omega T}{2}\right)}{1-\exp(-\mathrm{i}\omega T)}	\\
+&= \sum_k^{\infty} \exp\left(-\frac{\mathrm{i}}{\hbar}\hbar\omega\left(k+\frac{1}{2}\right)\right)
+\end{align*}
+Dies liefert uns das gewünschte, bereits bekannte Energie-Spektrum des Harmonischen Oszillators!
+
+\end{frame}
+
+
+\section{Der klassische Grenzfall}
+\begin{frame}{Beiträge zur Übergangsamplitude}
+
+Betrachte benachbarte Pfade $q(t)$ und $\tilde{q}(t) = q(t) + \eta(t)$:
+\begin{align*}
+		\mathcal{S}[q(t)] &= \int_{t_1}^{t_2}  \dd t \ \mathcal{L}(q, \dot{q}, t) \\
+		\mathcal{S}[\tilde{q}(t)] &= \mathcal{S}[q(t) + \eta(t)] \\
+		&= \mathcal{S}[q(t)] + \int_{t_1}^{t_2} \dd t \  \eta(t)\frac{\delta \mathcal{S}[q(t)]}{\delta q(t)} + \mathcal{O}(\eta^2)	 
+\end{align*}
+
+Damit ergibt sich für den Beitrag zur Übergangsamplitude $K(b,a)$: 
+
+\begin{align*}
+	A \ \simeq \ \exp(\frac{\mathrm{i}}{\hbar} \mathcal{S}[q(t)])\cdot \underbrace{\left(1+\exp\left(\frac{\mathrm{i}}{\hbar}\int \dd t \ \eta(t) \frac{\delta \mathcal{S}[q(t)]}{\delta q(t)}\right)\right)}_{\hbar \rightarrow 0 \ \Longrightarrow \ \text{größere Abweichung}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Beiträge zur Übergangsamplitude}
+\begin{figure}
+\begin{tikzpicture}
+\centering
+
+%Koordinatensystem
+\draw[->, thick] (0,0) to (10,0);
+\node at (10.3,0) {\Large$q$};
+\draw[->, thick] (0,0) to (0,6.5);
+\node at (0,6.8) {\Large$t$};
+
+%Punkte
+\filldraw (2,2)   circle (2pt);
+\node at (1.6,1.8) {\Large$a$};
+\filldraw (8,5)   circle (2pt);
+\node at (8.4,5.2) {\Large$b$};
+
+%Kurven
+\draw [-, bend angle = 65, bend left, thick] (2,2) to (8,5);
+\draw [-, bend angle=50, bend left, thick, color = myred] (2,2) to (8,5);
+\node at (3,5.9) {\color{myred}\Large  q$_{\text{cl}}$(t)};
+\draw[->, dashed, color = myred] (3.5,5.7) to (4.5,5);
+
+\draw [-, bend angle = 35, bend left, thick] (2,2) to (8,5);
+\node at (5.9,4) {\Large  $\tilde{\text{q}}$(t)};
+\draw[->, dashed,] (5.4,4) to (4.5,4.35);
+
+\draw [-, bend angle = 35, bend right, thick] (2,2) to (8,5);
+\draw [-, bend angle = 50, bend right, thick] (2,2) to (8,5);	
+
+\end{tikzpicture}
+\caption{Abweichungen zum klassischen Pfad}
+\end{figure}
+\end{frame}
+	
+
+\section{Weiterführende Anwendungen}
+
+\begin{frame}{Mathematisches Tool: Wick-Rotation}
+Als \textbf{Wick-Rotation} bezeichnen wir die analytische Fortsetzung
+\begin{align*}
+	\tau \longrightarrow -\mathrm{i}t	
+\end{align*}
+
+\begin{figure}
+\begin{tikzpicture}
+\centering
+\filldraw[color=gray!20] (2.5,2.5) circle (2cm);
+\draw[dashed] (2.5,2.5) circle (2cm);
+\draw[->, myred, ultra thick] (4.5,2.5)  arc[start angle=0, end angle=-89,radius=2cm] -- (2.5,0.5);
+\draw[->, myred, ultra thick] (0.5,2.5)  arc[start angle=180, end angle=91,radius=2cm] -- (2.5,4.5);
+
+%Koordinatensystem mit Pfeilen
+\draw[->, thick] (0,2.5) to (5,2.5);
+\node at (5.7,2.5) {$\mathfrak{Re}(q^0)$};
+\draw[->, ultra thick] (0.49,2.5) to (0.5,2.5);
+\draw[->, ultra thick] (1.49,2.5) to (1.5,2.5);
+
+\draw[->, ultra thick] (3.49,2.5) to (3.5,2.5);
+\draw[->, ultra thick] (4.49,2.5) to (4.5,2.5);
+
+\draw[->, thick] (2.5,0) to (2.5,5);
+\node at (2.5,5.4) {$\mathfrak{Im}(q^0)$};
+\draw[->, ultra thick, color =myred] (2.5,3.76) to (2.5,3.75);
+\draw[->, ultra thick, color = myred] (2.5,1.26) to (2.5,1.25);
+
+\end{tikzpicture}
+\caption{Visualisierung der Wick-Rotation}
+\end{figure} 	
+\end{frame}
+\begin{frame}{Pfadintegrale in der Statistischen Physik}
+
+\begin{itemize}
+	\item Betrachte nur Pfade, welche bei der selben Konfiguration starten und auch wieder enden:
+	\begin{align}
+		Z = \int \mathcal{D}q \ \exp\left(-\frac{1}{\hbar}\mathcal{S}_{\text{eukl.}}[q]\right)
+	\end{align}
+	\item Dies entspricht der kanonischen Zustandssumme mit 
+	\begin{align*}
+		\frac{1}{T} = \frac{k_b\tau}{\hbar}
+	\end{align*}
+	\item Insgesamt gilt:
+	\begin{align*}
+		Z = \int \dd q \ U(q,\beta\hbar;q) = \sum_k\bra{k} \int_q \dd q \ \operatorname{e}^{-\beta E_k}\ket{q}\braket{q}{k} = \sum_k \operatorname{e}^{-\beta E_k}
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Pfadintegrale in der Quantenfeldtheorie}
+In der Quantenfeldtheorie wird man häufig mit Pfadintegralen konfrontiert. \\
+\begin{itemize}
+	\item Man berechnet zum Beispiel \textbf{Erwartungswerte}:
+\begin{align*}
+	\langle F \rangle = \frac{\int\mathcal{D}\phi \ F[\phi]\ \operatorname{e}^{i\mathcal{S}[\phi]}}{\int\mathcal{D}\phi \ \operatorname{e}^{i\mathcal{S}[\phi]}}
+\end{align*}
+\item oder die sog. \textbf{Korrelationsfunktionen}:
+\begin{align*}
+\left\langle \phi(x_1) \phi(x_2) \ldots \phi(x_n)\right\rangle
+=\frac{\int \mathcal D \phi \; e^{-S[\phi]}\phi(x_1)\ldots \phi(x_n)}{\int \mathcal D \phi \; e^{-S[\phi]}}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{\hfill \Large Vielen Dank für eure Aufmerksamkeit! \hfill}
+	
+\end{block}
+
+\end{frame}

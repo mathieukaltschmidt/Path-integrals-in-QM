@@ -1,0 +1,40 @@
+\begin{thebibliography}{1}
+
+\bibitem{Dirac1934}
+P.~A.~M. Dirac.
+\newblock The lagrangian in quantum mechanics.
+\newblock {\em Physikalische Zeitschrift der Sowjetunion}, 3(1):312--320, 1933.
+
+\bibitem{Feynman1948}
+R.~P. Feynman.
+\newblock Space-time approach to non-relativistic quantum mechanics.
+\newblock {\em Reviews of Modern Physics}, 20(2):367--387, 1948.
+
+\bibitem{FeynmanHibbs}
+R.~P. Feynman and A.~R. Hibbs.
+\newblock {\em Quantum mechanics and path integrals}.
+\newblock Dover, New York [u.a.], 2010.
+
+\bibitem{HebeckerQM2018}
+Prof.~Arthur Hebecker.
+\newblock {\em Theoretische Physik IV - Quantenmechanik}.
+\newblock Universität Heidelberg, 2018.
+
+\bibitem{MacKenzie2000}
+Richard MacKenzie.
+\newblock {\em Path Integral Methods and Applications}.
+\newblock Université de Montréal, 2000.
+
+\bibitem{Ong}
+Yen~Chin Ong.
+\newblock {\em Note: Where is the Commutation Relation Hiding in the Path
+  Integral Formulation?}
+\newblock Leung Center for Cosmology and Particle Astrophysics, National Taiwan
+  University, Taipei, Taiwan 10617.
+
+\bibitem{WeigandQFT2014}
+Prof.~Timo Weigand.
+\newblock {\em Quantum Field Theory I + II}.
+\newblock Heidelberg University, 2013/2014.
+
+\end{thebibliography}
