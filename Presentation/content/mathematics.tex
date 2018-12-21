@@ -22,10 +22,11 @@
 \end{itemize}
 \end{frame}
 
+
 \begin{frame}{Ausgangslage für unsere Herleitung}
 Interessant ist die Analyse der \textbf{Übergangsamplitude}:
 \begin{align*}
-\braket{q_b,t_b}{q_a,t_a} = \bra{q_b}\exp\left(-\mathrm{i} \hat{\text{H}}(t_b-t_a)\right)\ket{q_a}
+\braket{q_b,T}{q_a,0} = \bra{q_b}\exp\left(-\frac{\mathrm{i}}{\hbar} \hat{\text{H}}T\right)\ket{q_a}
 \end{align*}
 
 \textbf{Einige hilfreiche Identitäten}:
@@ -33,9 +34,9 @@ Interessant ist die Analyse der \textbf{Übergangsamplitude}:
 \begin{itemize}
 \item Identität im Orstraum: $\mathrm{1\!l} = \int\dd q_k \ \ket{q_k}\bra{q_k} $
 \vfill 
-\item Baker-Hausdorff-Campbell: $\operatorname{e}^{A+B} = \operatorname{e}^{A}\operatorname{e}^{B}\operatorname{e}^{-\frac{1}{2}[A+B] + \cdots} $
+\item Baker-Campbell-Hausdorff: $\operatorname{e}^{A+B} = \operatorname{e}^{A}\operatorname{e}^{B}\operatorname{e}^{-\frac{1}{2}[A,B] + \cdots} $
 \vfill 
-\item Basistransformation: $\braket{p_k}{q_k} = \frac{1}{\sqrt{2\pi}}\operatorname{e}^{-{\mathrm{i}p_kq_k}}$
+\item Basistransformation: $\braket{p_k}{q_k} = \frac{1}{\sqrt{2\pi}}\operatorname{e}^{-{\frac{\mathrm{i}}{\hbar}p_kq_k}}$
 \end{itemize}
 \end{frame}
 
@@ -88,36 +89,7 @@ Interessant ist die Analyse der \textbf{Übergangsamplitude}:
 \end{figure}
 \end{frame}
 
-\begin{frame}{Übergang zu zwei und mehr Events}
-\begin{figure}
-\centering
-\begin{tikzpicture}
-
-%Koordinatensystem
-\draw[->, thick] (0,0) to (10,0);
-\node at (10.3,0) {\Large$q$};
-\draw[->, thick] (0,0) to (0,6.5);
-\node at (0,6.8) {\Large$t$};
-
-
-%Domain 
-\filldraw[color=myred!30] (5,3) ellipse (3.5cm and 2.5 cm);
-\draw[-, thick] (5,3) ellipse (3.5cm and 2.5 cm);
-
-%Horizontale Linie
-\draw[-, thick, dashed] (0,3) to (10,3);
-\node at (0.3,3.3) {\Large$t_k$};
-
-%Beschriftung 
-\node at (8,6) {\Large Ereignisbereich $R$};
-\node at (5,4.5) {\Large $R \ ''$};
-\node at (5,1.5) {\Large  $R \ '$};
-
-\end{tikzpicture}
-\caption{Zerlegung des Ereignisraumes}
-\end{figure}
-\end{frame}
-\begin{frame}{Übergang zu zwei und mehr Events}
+\begin{frame}{Konstruktion aus der Lokalität aus Einzelspalten}
 \begin{figure}
 \centering
 \begin{tikzpicture}
@@ -150,21 +122,22 @@ Interessant ist die Analyse der \textbf{Übergangsamplitude}:
 \filldraw (5,3) circle (2pt);
 \filldraw (4,6) circle (2pt);
 \end{tikzpicture}
-\caption{Einzelspalt zur Veranschaulichung der Idee von Multi-Events}
+\caption{Mögliche Darstellung der Vorstellung der Lokalisierung}
 \end{figure}
 \end{frame}
 \begin{frame}{Wichtiges Zwischenergebnis}
 \metroset{block=fill}
 \begin{block}{Formale Definition des Pfadintegrals}
 \begin{align*}
-	K(b,a) &= \braket{q_b,t_b}{q_a,t_a}\\
-	&= \int_a^b \mathcal{D}[q(t)] \exp\left(\frac{\mathrm{i}}{\hbar}\int_{t_a}^{t_b}\dd t \ \mathcal{L}(q(t),\dot{q}(t))\right)
+	\braket{q_b,T}{q_a,0} = \int_{q(0)=q_0}^{q(T)=q_T} \mathcal{D}q(t)\mathcal{D}p(t) \ \exp\left(\frac{\mathrm{i}}{\hbar}\int_{0}^{T}\dd t \ \left[ p\dot{q} - \mathrm{H}(p,q)\right]\right)
 \end{align*}
 \end{block}
-Im nächsten Schritt untersuchen wir den Fall eines allgemeinen Hamiltonians der Form:
+Neue Notation:
 \begin{align*}
-	\hat{\text{H}}(p,q) = \frac{p^2}{2m} + V(q) 
+	\mathcal{D}q(t) &= \lim_{N\rightarrow\infty} \prod_{k=1}^{N} \dd q_k \\
+	\mathcal{D}p(t) &= \lim_{N\rightarrow\infty} \prod_{k=0}^{N} \dd p_k
 \end{align*}
+
 Wir benötigen die Definition des \textbf{Gaußintegrals}: 
 \begin{align*}
 	\int_{-\infty}^{\infty}\dd q \exp\left(-\frac{1}{2}a q^2 + b q\right) = \sqrt{\frac{2\pi}{a}}\exp\left(\frac{b^2}{2a}\right) \quad \text{mit } \mathfrak{Re}(a)>0 
@@ -178,9 +151,12 @@ Endergebnis der Herleitung für einen Hamiltonian der Form $\frac{p^2}{2m} + V(q
 \metroset{block=fill}
 \begin{block}{Feynman-Kac-Formel}
 \begin{align*}
-	 \braket{q_b,t_b}{q_a,t_a} &= \lim_{N \rightarrow\infty} \gamma^{N+1}\prod_{k=1}^{N} \int\dd q_k \exp\left(\mathrm{i}\int_{t_a}^{t_b}\dd t \ \mathcal{L}(p,q)\right) \\
-	 &\equiv \int_{q(t_a)}^{q(t_b)} \mathcal{D}q(t) \exp\left(\mathrm{i}\int_{t_a}^{t_b}\dd t \ \mathcal{L}(p,q)\right)
+	 \braket{q_b,T}{q_a,0} &= \lim_{N \rightarrow\infty} \gamma^{N+1}\prod_{k=1}^{N} \int\dd q_k \exp\left(\frac{\mathrm{i}}{\hbar}\int_{0}^{T}\dd t \ \mathcal{L}(p,q)\right) \\
+	 &\equiv \int_{q_0}^{q_T} \mathcal{D}q(t) \exp\left(\frac{\mathrm{i}}{\hbar}\int_{0}^{T}\dd t \ \mathcal{L}(p,q)\right)
 \end{align*}	
 \end{block}
-	
+\begin{itemize}
+	\item Integrationsmaß berücksichtigt Information aus $p$-Integration 
+	\item Wir dürfen nun $\mathcal{L}$ im Exponenten schreiben, da nun wirklich eine Funktion von $p$ und $q$ vorliegt.
+\end{itemize}	
 \end{frame}

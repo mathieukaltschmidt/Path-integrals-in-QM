@@ -4,19 +4,18 @@
 \begin{block}{\hfill Anwendung des erlernten Formalismus \hfill}
 Wir wollen nun das Erlernte benutzen um die Energie-Eigenwerte für das  Potential des harmonischen Oszillators zu bestimmen.
 \end{block}
-Wir kennen die den Lagrangian für dieses Problem: 
+Wir kennen den Lagrangian für dieses Problem: 
 \begin{align*}
-	\mathcal{L} = \frac{\dot{q}^2}{2m} - \frac{m\omega^2q^2}{2} 
+	\mathcal{L} = \frac{m}{2}\dot{q}^2 - \frac{m\omega^2q^2}{2} 
 \end{align*}
 
 Wir schreiben die Pfade als Abweichungen vom klassischen Pfad:
 \begin{align*}
-	q(t) = q_{cl.}(t) + \eta(t)
+	q(t) = q_{\text{cl}}(t) + \eta(t)
 \end{align*}
-
-Klassische Lösung für $q(t_a) = q_a$ und $q(t_b) = q_b$:
+Die Wirkung des klassischen Beitrags ist bekannt:
 \begin{align*}
-	q_{cl.}(t) = \frac{\sin \omega(t_b-t)}{\sin \omega(t_b-t_a)} \cdot q_a + \frac{\sin \omega(t-t_a)}{\sin \omega(t_b-t_a)} \cdot q_b
+	\mathcal{S}[q_{\text{cl}}] = \frac{m\omega}{2\sin(\omega T)}\left[(q_T^2+q_0^2)\cos(\omega T)- 2q_Tq_0\right]
 \end{align*}
 \end{frame}
 
@@ -24,10 +23,11 @@ Klassische Lösung für $q(t_a) = q_a$ und $q(t_b) = q_b$:
 %\metroset{block=fill}
 \begin{block}{\hfill Mehler-Formel für den harmonischen Oszillator\hfill }
 	\begin{align*}
-		\braket{q_b,t_b}{q_a,t_a} &= \sqrt{\frac{m\omega}{2\pi\mathrm{i}\hbar\sin(\omega T)}} \exp\left(\frac{\mathrm{i}}{\hbar}\mathcal{S}_{cl.} \right) \\ &= \sqrt{\frac{m\omega}{2\pi\mathrm{i}\hbar \sin(\omega T)}} \exp\left(\frac{\mathrm{i}m\omega}{2\hbar\sin(\omega T)}\left[(q_b^2+q_a^2)\cos(\omega T)- 2q_bq_a\right] \right)
+	\hspace{-0.5cm}
+		\braket{q_b,T}{q_a,0} = \sqrt{\frac{m\omega}{2\pi\mathrm{i}\hbar \sin(\omega T)}} \exp\left(\frac{\mathrm{i}m\omega}{2\hbar\sin(\omega T)}\left[(q_T^2+q_0^2)\cos(\omega T)- 2q_Tq_0\right] \right)
 	\end{align*}
 \end{block}
-wobei $T = t_b-t_a = $ Periodendauer. 
+
 \vfill
 \begin{block}{\hfill Energiespektrum \hfill}
 Wir bilden die Spur des Zeitentwicklungsoperators:
@@ -44,7 +44,7 @@ Wir bilden die Spur des Zeitentwicklungsoperators:
 &=  \sqrt{\frac{m\omega}{2\pi\mathrm{i}\hbar\sin(\omega T)}} \int_{-\infty}^{\infty} \dd q  \exp\left(\frac{\mathrm{i}m\omega}{2\hbar\sin(\omega T)}\left[2q^2(\cos(\omega T)- 1)\right] \right) \\
 &= \frac{1}{2\mathrm{i}\sin\left(\frac{\omega T}{2}\right)} \\
 &= \frac{\exp\left(-\mathrm{i}\frac{\omega T}{2}\right)}{1-\exp(-\mathrm{i}\omega T)}	\\
-&= \sum_k^{\infty} \exp\left(-\frac{\mathrm{i}}{\hbar}\hbar\omega\left(k+\frac{1}{2}\right)\right)
+&= \sum_{k=0}^{\infty} \exp\left(-\frac{\mathrm{i}}{\hbar}\hbar\omega\left(k+\frac{1}{2}\right)\right)
 \end{align*}
 Dies liefert uns das gewünschte, bereits bekannte Energie-Spektrum des Harmonischen Oszillators!
 
@@ -52,20 +52,26 @@ Dies liefert uns das gewünschte, bereits bekannte Energie-Spektrum des Harmonis
 
 
 \section{Der klassische Grenzfall}
-\begin{frame}{Beiträge zur Übergangsamplitude}
+\begin{frame}{Der klassische Grenzfall}
 
-Betrachte benachbarte Pfade $q(t)$ und $\tilde{q}(t) = q(t) + \eta(t)$:
+\begin{itemize}
+	\item Klassischer Limes: $\hbar \rightarrow 0$
+\end{itemize}
 \begin{align*}
-		\mathcal{S}[q(t)] &= \int_{t_1}^{t_2}  \dd t \ \mathcal{L}(q, \dot{q}, t) \\
-		\mathcal{S}[\tilde{q}(t)] &= \mathcal{S}[q(t) + \eta(t)] \\
-		&= \mathcal{S}[q(t)] + \int_{t_1}^{t_2} \dd t \  \eta(t)\frac{\delta \mathcal{S}[q(t)]}{\delta q(t)} + \mathcal{O}(\eta^2)	 
+	\phi[q] \sim \exp(\frac{\mathrm{i}}{\hbar} \mathcal{S}[q])
 \end{align*}
+\begin{itemize}
+	\item Starke Oszillation im Phasenfaktor
+	\item Für den klassischen Pfad ist $\mathcal{S}$ stationär!
+\end{itemize} 
+\metroset{block=fill}
+\begin{block}{\hfill Fazit \hfill}
+\begin{itemize}
+	\item Der dominante Pfad für den Limes $\hbar\rightarrow 0$ ist gerade der Klassische!
+	\item  Die schnelle Oszillation des Exponenten führt zu "destruktiver Interferenz" von den Beiträgen der Pfade, die weit von der klassischen Lösung entfernt sind.	
+\end{itemize}
+\end{block}
 
-Damit ergibt sich für den Beitrag zur Übergangsamplitude $K(b,a)$: 
-
-\begin{align*}
-	A \ \simeq \ \exp(\frac{\mathrm{i}}{\hbar} \mathcal{S}[q(t)])\cdot \underbrace{\left(1+\exp\left(\frac{\mathrm{i}}{\hbar}\int \dd t \ \eta(t) \frac{\delta \mathcal{S}[q(t)]}{\delta q(t)}\right)\right)}_{\hbar \rightarrow 0 \ \Longrightarrow \ \text{größere Abweichung}}
-\end{align*}
 \end{frame}
 
 \begin{frame}{Beiträge zur Übergangsamplitude}
@@ -75,9 +81,9 @@ Damit ergibt sich für den Beitrag zur Übergangsamplitude $K(b,a)$:
 
 %Koordinatensystem
 \draw[->, thick] (0,0) to (10,0);
-\node at (10.3,0) {\Large$q$};
+\node at (10.3,0) {\Large$t$};
 \draw[->, thick] (0,0) to (0,6.5);
-\node at (0,6.8) {\Large$t$};
+\node at (0,6.8) {\Large$q$};
 
 %Punkte
 \filldraw (2,2)   circle (2pt);
@@ -109,8 +115,8 @@ Damit ergibt sich für den Beitrag zur Übergangsamplitude $K(b,a)$:
 \begin{frame}{Mathematisches Tool: Wick-Rotation}
 Als \textbf{Wick-Rotation} bezeichnen wir die analytische Fortsetzung
 \begin{align*}
-	\tau \longrightarrow -\mathrm{i}t	
-\end{align*}
+	t \longrightarrow \operatorname{e}^{-\mathrm{i}\varphi}\tau \qquad \varphi: 0 \rightarrow \frac{\pi}{2}
+	\end{align*}
 
 \begin{figure}
 \begin{tikzpicture}
@@ -147,7 +153,7 @@ Als \textbf{Wick-Rotation} bezeichnen wir die analytische Fortsetzung
 	\end{align}
 	\item Dies entspricht der kanonischen Zustandssumme mit 
 	\begin{align*}
-		\frac{1}{T} = \frac{k_b\tau}{\hbar}
+		\frac{1}{T} = \frac{k_B\tau}{\hbar}
 	\end{align*}
 	\item Insgesamt gilt:
 	\begin{align*}
@@ -161,12 +167,12 @@ In der Quantenfeldtheorie wird man häufig mit Pfadintegralen konfrontiert. \\
 \begin{itemize}
 	\item Man berechnet zum Beispiel \textbf{Erwartungswerte}:
 \begin{align*}
-	\langle F \rangle = \frac{\int\mathcal{D}\phi \ F[\phi]\ \operatorname{e}^{i\mathcal{S}[\phi]}}{\int\mathcal{D}\phi \ \operatorname{e}^{i\mathcal{S}[\phi]}}
+	\langle F \rangle = \frac{\int\mathcal{D}\phi \ F[\phi]\ \operatorname{e}^{-\mathcal{S}[\phi]}}{\int\mathcal{D}\phi' \ \operatorname{e}^{-\mathcal{S}[\phi']}}
 \end{align*}
 \item oder die sog. \textbf{Korrelationsfunktionen}:
 \begin{align*}
 \left\langle \phi(x_1) \phi(x_2) \ldots \phi(x_n)\right\rangle
-=\frac{\int \mathcal D \phi \; e^{-S[\phi]}\phi(x_1)\ldots \phi(x_n)}{\int \mathcal D \phi \; e^{-S[\phi]}}
+=\frac{\int \mathcal D \phi \; e^{-\mathcal{S}[\phi]}\phi(x_1)\ldots \phi(x_n)}{\int \mathcal D \phi' \; e^{-\mathcal{S}[\phi']}}
 \end{align*}
 \end{itemize}
 \end{frame}

@@ -26,13 +26,14 @@
 
 \begin{frame}{Klassische Dynamik von Teilchen}
 \begin{itemize}
-	\item Trajektorien ergeben sich aus dem \textbf{Wirkungsprinzip}:
+	\item Trajektorien ergeben sich aus dem \textbf{Wirkungsprinzip}, das heißt die Wirkung $\mathcal{S}$, mit
 	\begin{align*}
-	\text{Wirkung } S = \int_{t_1}^{t_2} \dd t \ \mathcal{L}(q(t),\dot{q}(t)) \text{ wird  minimiert.} 
+	\mathcal{S} = \int_{t_1}^{t_2} \dd t \ \mathcal{L}(q(t),\dot{q}(t)) 
 	\end{align*}
-	\item Erste Variation $\delta S$ soll verschwinden:
+	soll minimiert werden.
+	\item Dazu muss die erste Variation $\delta\mathcal{S}$ verschwinden:
 	\begin{align*}
-		\delta S = \int_{t_1}^{t_2} \dd t \frac{\partial \mathcal{L}}{\partial q} \delta q + \frac{\partial \mathcal{L}}{\partial \dot{q}} \delta \dot{q} \overset{!}{ = } 0
+		\delta \mathcal{S} = \int_{t_1}^{t_2} \dd t \left(\frac{\partial \mathcal{L}}{\partial q} \delta q + \frac{\partial \mathcal{L}}{\partial \dot{q}} \delta \dot{q}\right) \overset{!}{ = } 0
 	\end{align*}
 	\item Ausführen der Variation liefert \textbf{Euler-Lagrange-Gleichungen:} 
 	\begin{align*}
@@ -53,7 +54,7 @@
 \begin{enumerate}
 	\item Matrizenmechanik  nach Heisenberg et al.
 	\begin{align*}
-	\frac{\mathrm{d}\hat{\text{A}}_{{\rm H}}}{\mathrm{d}t}=\frac{\mathrm{i}}{\hbar}\left[\hat{\text{H}}_{\rm H},\hat{\text{A}}_{\rm H}\right]+\left( \partial_t \hat{\text{A}}_{\rm S}\right)_{\rm H}
+	\frac{\mathrm{d}\hat{\text{A}}_{{\rm H}}(t)}{\mathrm{d}t}=\frac{\mathrm{i}}{\hbar}\left[\hat{\text{H}},\hat{\text{A}}_{\rm H}\right]
 	\end{align*}
 	\item Wellenmechanik nach Schrödinger
 	\begin{align*}
@@ -63,10 +64,6 @@
 \end{enumerate}
 \end{frame}
 \begin{frame}{Entwicklung des Pfadintegral-Formalismus}
-
-\begin{itemize}
-	\item Grundlegende Beiträge von \textbf{Gregor Wentzel, Paul Dirac} und insbesondere \textbf{Richard P. Feynman}
-\end{itemize}
 
 \begin{figure}[H]
 	\begin{minipage}{0.275\textwidth}
@@ -79,8 +76,11 @@
 	\includegraphics[width = \textwidth]{figures/feynman}	
 	\end{minipage}
 	
-	\caption{Von links nach rechts: G. Wentzel, P. Dirac und R. Feynman}
+	\caption{Von links nach rechts: \\ \qquad \qquad \qquad \hspace{-3pt} G. Wentzel$\footnotemark$, P. A. M. Dirac$\footnotemark$ und R. P. Feynman$\footnotemark$}
 \end{figure}
+\footnotetext[1]{\tiny Quelle: https://research.uni-leipzig.de/catalogus-professorum-lipsiensium/leipzig/Wentzel\_378/}
+\footnotetext[2]{\tiny Quelle: https://www.gettyimages.de/search/2/image?specificpeople=2032478\&sort=best }
+\footnotetext[3]{\tiny Quelle: http://www.caltech.edu/news/feynmans-nobel-year-48524}
 \end{frame}
 
 \begin{frame}{Entwicklung des Formalismus}

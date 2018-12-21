@@ -2,7 +2,6 @@
 \select@language {german}
 \beamer@sectionintoc {1}{Von der klassischen Mechanik zur Quantenmechanik}{3}{0}{1}
 \beamer@sectionintoc {2}{Die Idee des Pfadintegral-Formalismus}{9}{0}{2}
-\beamer@sectionintoc {3}{Kommutatorrelation im Pfadintegralformalismus}{17}{0}{3}
-\beamer@sectionintoc {4}{Der Harmonische Oszillator}{21}{0}{4}
-\beamer@sectionintoc {5}{Der klassische Grenzfall}{25}{0}{5}
-\beamer@sectionintoc {6}{Weiterführende Anwendungen}{28}{0}{6}
+\beamer@sectionintoc {3}{Der Harmonische Oszillator}{16}{0}{3}
+\beamer@sectionintoc {4}{Der klassische Grenzfall}{20}{0}{4}
+\beamer@sectionintoc {5}{Weiterführende Anwendungen}{23}{0}{5}
