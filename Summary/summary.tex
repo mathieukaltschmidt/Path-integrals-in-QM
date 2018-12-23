@@ -1,0 +1,25 @@
+\documentclass{scrartcl}
+
+%Loading Packages and General Settings
+\usepackage{nicefrac}
+\input{metadata/settings}
+
+\begin{document}
+%Title and Abstract
+\input{content/00_abstract}
+
+%Main content
+\input{content/01_introduction}
+\input{content/02_path-integral}
+\input{content/03_harmonic-oscillator}
+\input{content/04_classical-limit}
+\input{content/05_applications}
+
+%References 
+\newpage	
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\nocite{*}
+\printbibliography[title=Literaturverzeichnis]
+\end{document}
+ 

@@ -1,0 +1,62 @@
+\section{Der Pfadintegral-Formalismus}
+%TODO Historisches :-)
+
+\subsection{Feynman's Postulate}
+\subsection{Allgemeine Herleitung}
+Ausgangspunkt unserer Herleitung ist die Auswertung der Übergangsamplitude:
+\begin{align}
+	\braket{q_b,T}{q_a,0} = \bra{q_b}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}T}\ket{q_a} \label{eqn:amplitude1}
+\end{align}
+Wir teilen das Zeitintervall $[0,T]$ in $N+1$ Teilintervalle der Länge $\delta t = \frac{T}{N+1}$ was dazu führt, dass die Exponentialfunktion in $N+1$ Faktoren $\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}$ zerfällt. Interessant ist die Betrachtung dieser Zerlegung im Limes für hohe $N$. \\
+Nun wollen wir zwischen jeden der Faktoren Identitätsoperatoren im Ortsraum einfügen. Diese sind von der Form 
+	$\mathrm{1\!l} = \int \dd q_k \ket{q_k}\bra{q_k}$ und überführen Gleichung (\ref{eqn:amplitude1}) in 
+\begin{align}
+	\braket{q_b,T}{q_a,0} = \lim_{N\rightarrow\infty} \int \prod_{k=1}^{N} \dd q_k \bra{q_b}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_N}\bra{q_N}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_{N-1}} \cdots \bra{q_1}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_a} \label{eqn:amplitude2}
+\end{align}
+Für den Hamilton-Operator wählen wir den Ansatz $\hat{\operatorname{H}} = \frac{\hat{p}^2}{2m} + V(\hat{q})$. Dieser repräsentiert die Klasse der physikalisch relevantesten Probleme. Außerdem wird die (maximal) quadratische Abhängigkeit im kinetischen Term noch wichtig für die Herleitung sein.\\
+Nach der \textit{Baker-Campbell-Hausdorff-Formel} haben die einzelnen Exponential-Operatoren die Form
+\begin{align}
+	\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t} = \operatorname{e}^{-\ihbar\frac{\hat{p}^2}{2m}\delta t}\operatorname{e}^{-\ihbar V(\hat{q})\delta t}\operatorname{e}^{\frac{1}{2\hbar^2}[\frac{\hat{p}^2}{2m},V(\hat{q})]\delta t^2} + \ \mathcal{O}(\delta t^3)
+\end{align}
+wobei $[\hat{A},\hat{B}] = \hat{A}\hat{B} - \hat{B}\hat{A}$ der Kommutator der beiden Operatoren ist. Aufgrund unserer Grenzwertbetrachtung für den Fall hoher $N$ wollen wir jedoch auch den Term $\mathcal{O}(\delta t^2)$ für die weitere Herleitung vernachlässigen. \\
+Wir fügen erneut Identitätsoperatoren ein, dieses Mal jedoch im Impulsraum und analysieren beispielhaft einen der Faktoren aus Gleichung (\ref{eqn:amplitude2}):
+\begin{align}
+	\bra{q_{k+1}}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_k} &= \int \dd p_k \bra{q_{k+1}}\operatorname{e}^{-\ihbar\frac{\hat{p}^2}{2m}\delta t}\ket{p_k}\bra{p_k}\operatorname{e}^{-\ihbar V(\hat{q})\delta t}\ket{q_k} \nonumber \\
+	&= \int \dd p_k \operatorname{e}^{-\ihbar\left(\frac{p_k^2}{2m} +V(q_k)\right)\delta t}\bra{q_{k+1}}\ket{p_k}\bra{p_k}\ket{q_k} \nonumber \\
+	&= \int \frac{\dd p_k}{2\pi} \operatorname{e}^{-\ihbar \operatorname{H}(p_k,q_k)\delta t} \operatorname{e}^{-\ihbar(q_{k+1}-q_k)p_k}
+\end{align}
+Der letzte Umformungsschritt begründet sich aus der Relation zwischen der Basis im Orts- und Impulsraum, welche durch die Fourier-Transformation gegeben ist und die folgende Form hat: $\braket{p_k}{q_k} = \frac{1}{\sqrt{2\pi}} \operatorname{e}^{-\ihbar p_kq_k}$. \\
+Setzen wir dieses Ergebnis in Gleichung (\ref{eqn:amplitude2}) ein, so erhalten wir: 
+\begin{align}
+	\braket{q_b,T}{q_a,0} = \lim_{N\rightarrow\infty} \int \frac{\dd p_0}{2\pi} \prod_{k=1}^N \frac{\dd p_k\dd q_k}{2\pi} \operatorname{e}^{\ihbar\sum_{k=0}^N\left[p_k\frac{q_{k+1}-q_k}{\delta t} - \operatorname{H}(p_k,q_k)\right]\delta t}
+\end{align}
+beziehungsweise, wenn wir uns an die infinitesimale Definition der Ableitung erinnern:
+\begin{align}
+	\braket{q_b,T}{q_a,0} = \int_{q(0)=q_0}^{q(T)=q_T} \mathcal{D}p(t)\mathcal{D}q(t) \ \operatorname{e}^{\ihbar\sum_{k=0}^N\left[p_k\dot{q}_k - \operatorname{H}(p_k,q_k)\right]\delta t}
+\end{align}
+Wir haben hier direkt die üblichen Konventionen für das Integrationsmaß
+\begin{align*}
+	\mathcal{D}q(t) &= \lim_{N\rightarrow\infty} \prod_{k=1}^{N} \dd q_k \\
+	\mathcal{D}p(t) &= \lim_{N\rightarrow\infty} \prod_{k=0}^{N} \dd p_k
+\end{align*}
+verwendet. \\ 
+Im nächsten Schritt sind wir an der rigorosen Lösung für den von uns gewählten Ansatz $H(p_k,q_k) = \frac{p_k^2}{2m} + V(q_k)$ interessiert. In der diskreten Darstellung wie oben
+\begin{align}
+	\int\frac{\dd p_k}{2\pi} \operatorname{e}^{-\ihbar\left(p_k(q_{k+1}-q_k)-\frac{p_k^2}{2m}\delta t\right)} \label{eqn:gauss}
+\end{align}
+erkennen wir die Form eines Gauß-Integrals, für das wir im Reellen die Lösung 
+\begin{align}
+	\int_{-\infty}^{\infty}\dd p \exp\left(-\frac{1}{2}a p^2 + b p\right) = \sqrt{\frac{2\pi}{a}}\exp\left(\frac{b^2}{2a}\right) \quad \text{mit } \mathfrak{Re}(a)>0 
+\end{align}
+kennen. Mit diesem Wissen können wir durch einen mathematischen Trick, eine analytische Fortsetzung in die komplexe Ebene, auch Gauß-Integrale der Form von Gleichung (\ref{eqn:gauss}) lösen. \\
+ Wir wählen hierzu eine Substitution der Form $\delta t \rightarrow \eval{\delta t(1- i\varepsilon)}_{\varepsilon=0}$ und erhalten:
+ \begin{align}
+ 	\int\frac{\dd p_k}{2\pi} \operatorname{e}^{-\ihbar\left(p_k(q_{k+1}-q_k)-\frac{p_k^2}{2m}\delta t\right)} = \underbrace{\sqrt{\frac{m}{2\pi\hbar\delta t}}\operatorname{e}^{i\frac{3\pi}{4}}}_{:= \ \gamma} \operatorname{e}^{\ihbar\frac{m}{2\delta t}(q_{k+1}-q_k)}
+ \end{align}
+ Dies führt uns zu dem Endergebnis der Herleitung, der \textbf{Feynman-Kac-Formel} für Übergangsamplituden: 
+ \begin{align}
+ 		 \braket{q_b,T}{q_a,0} &= \lim_{N \rightarrow\infty} \gamma^{N+1}\prod_{k=1}^{N} \int\dd q_k \ \exp\left(\ihbar\int_{0}^{T}\dd t \ \mathcal{L}(q,\dot{q})\right) \nonumber \\
+	 &\equiv \int_{q_0}^{q_T} \mathcal{D}q(t) \exp\left(\ihbar\int_{0}^{T}\dd t \ \mathcal{L}(q,\dot{q})\right)
+ \end{align}
+ Das Integrationsmaß berücksichtigt hierbei die Information aus der $p$-Integration, welche sich im Vorfaktor $\gamma$ versteckt. \\
+ Wir dürfen an dieser Stelle den Lagrangian $\mathcal{L}$ anstelle des Ausdrucks \ $p\dot{q} - \operatorname{H}(p,q)$ schreiben, welcher zuvor noch nicht als Legendre-Transformation angesehen werden konnte, da wir zuerst die $p$-Integration ausführen mussten um die extremalisierenden Charakter der Legendre-Transformation zu berücksichtigen  und eine Funktion von $q$ und $\dot{q}$ zu erhalten. Hier is auch die Bedeutung des quadratisch in $p$ angesetzten kinetischen Terms im Hamiltonian eingegangen. 
