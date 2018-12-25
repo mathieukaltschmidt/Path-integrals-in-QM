@@ -2,13 +2,90 @@
 Wir wollen nun das Erlernte benutzen um das Eigenenergie-Spektrum für das  Potential des harmonischen Oszillators zu bestimmen. \\
 Wir kennen den Lagrangian für dieses Problem: 
 \begin{align}
-	\mathcal{L} = \frac{m}{2}\dot{q}^2 - \frac{m\omega^2}{2}q^2
+	\mathcal{L} = \frac{m}{2}\dot{q}^2 - \frac{m\omega^2}{2}q^2 \label{eqn:lagrangian}
 \end{align}
 und parametrisieren alle Pfade als Abweichungen vom klassischen Pfad:
 \begin{align}
-	q(t) = q_{\text{cl}}(t) + \eta(t)
+	q(t) = q_{\text{cl}}(t) + \eta(t) \label{eqn:ansatz}
 \end{align}
 Die Wirkung des klassischen Beitrags lässt sich aus einer etwas länglichen aber nicht allzu schweren Rechnung bestimmen und wird an dieser Stelle als bekannt vorausgesetzt:
 \begin{align}
 	\mathcal{S}[q_{\text{cl}}] = \frac{m\omega}{2\sin(\omega T)}\left[(q_T^2+q_0^2)\cos(\omega T)- 2q_Tq_0\right]
 \end{align}
+Mit unserem Ansatz aus den Gleichungen (\ref{eqn:lagrangian}) und (\ref{eqn:ansatz}) erhalten wir für die Wirkung eines beliebigen Pfades $q(t)$:
+\begin{align}
+	\mathcal{S}[q] = \frac{m}{2} \int_0^T \dd t \left[\dot{q}_{\text{cl}}^2 + \dot{\eta}^2 + 2\dot{q}_{\text{cl}}\dot{\eta} - \omega^2\left(q_{\text{cl}}^2 + \eta^2 + 2q_{\text{cl}}\eta \right) \right] \label{eqn:wirkung}
+\end{align}
+Wir entwickeln das Wirkungsfunktional gemäß dem Ansatz
+\begin{align}
+	\mathcal{S}[q_{\text{cl}} + \eta] = \sum_{n=0}^{\infty} \frac{1}{n!} \int \dd t_1 \cdots \int \dd t_n \eval{\frac{\delta^{(n)}\mathcal{S}[q_{\text{cl}} + \eta']}{\delta\eta'(t_1)\cdots\delta\eta'(t_n)}}_{\eta' = 0} \eta(t_1)\cdots\eta(t_n)
+\end{align}
+wobei $\frac{\delta^{(n)}\mathcal{S}[q_{\text{cl}} + \eta']}{\delta\eta'(t_1)\cdots\delta\eta'(t_n)}$ der Variation $n$-ter Ordnung des Wirkungsfunktionals entspricht. \\
+Aus dieser Entwicklung wird direkt ersichtlich, dass die Terme linear in $\eta$ und $\dot{\eta}$ in Glei-chung (\ref{eqn:wirkung}) vernachlässigt werden können, da per Definition die erste Variation der Wirkung für $q_{\text{cl}}$ verschwindet. \\
+Mit Hilfe dieses Ansatzes und unter Verwendung der Tatsache, dass alle Variation für Ordnungen höher $n=2$ gleich null sind erhalten wir für die Wirkung $\mathcal{S}[q]$:
+\begin{align}
+\mathcal{S}[q] &= \mathcal{S}[q_{\text{cl}}] + \frac{m}{2}\int_0^T \dd t \left[\dot{\eta}^2 - \omega^2\eta\right] \nonumber \\
+&= \mathcal{S}[q_{\text{cl}}] + \frac{m}{2}\int_0^T \dd t \ \eta\left[-\frac{\dd^2}{\dd t^2}-\omega^2\right]\eta \label{eqn:ew-problem}
+\end{align}
+Im letzten Schritt wurde partiell integriert, unter Berücksichtigung der Randbedingungen unseres Problems $q_{\text{cl}}(0) = q_0,\ q_{\text{cl}}(T) = q_T $ sowie 
+	$ \eta(0) = \eta(T) = 0$. \\
+	
+	An dieser Stelle sei angemerkt, dass für das Integrationsmaß $\mathcal{D}q = \mathcal{D}\eta$ gilt, was aus der Linearität des Ansatzes $\mathcal{D}q \simeq \prod_k \dd q_k $ mit $ q_k = q_{\text{cl},k} + \eta_k$ folgt. \\
+	
+	Wir suchen nach einem Ansatz für $\eta$, genauer nach einer Eigenfunktion zu $\left[-\frac{\dd^2}{\dd t^2}-\omega^2\right]$. \\
+	Hierzu entwickeln wir $\eta$ in eine Sinus-Fourierreihe, also
+	\begin{align}
+		\eta(t) = \sum_{n=1}^{\infty} a_n\eta_n(t) \qquad \text{mit } \ \eta_n(t) = \sqrt{\frac{2}{T}}\sin\left(\frac{n\pi t}{T}\right)
+	\end{align}
+was erneut aus unseren Randbedingungen folgt. \\ 
+Diese Reihenentwicklung liefert uns eine Orthonormalbasis mit der Relation 
+\begin{align}
+	\int_0^T \dd t \ \eta_n \eta_m = \delta_{nm}
+\end{align}
+die das Eigenwertproblem
+\begin{align}
+	\left[-\frac{\dd^2}{\dd t^2}-\omega^2\right]\eta_n = \underbrace{\left(\left(\frac{n\pi}{T}\right)^2-\omega^2\right)}_{:= \ \lambda_n}\eta_n 
+\end{align}
+löst. Einsetzen in Gleichung (\ref{eqn:ew-problem}) resultiert in 
+\begin{align}
+\mathcal{S}[q] &= \mathcal{S}[q_{\text{cl}}] + \frac{m}{2}\sum_{n=1}^{\infty}\sum_{m=1}^{\infty}a_na_m \int_0^T \dd t \ \eta_n\lambda_m\eta_m \nonumber \\
+&= \mathcal{S}[q_{\text{cl}}] + \frac{m}{2}\sum_{n=1}^{\infty}a_n^2\lambda_n \nonumber \\
+&= \mathcal{S}[q_{\text{cl}}] + \mathcal{S}[a_n]
+\end{align}
+ Hierbei handelt es sich um eine lineare Transformation. Aus diesem Grund müssen wir die auftretende Funktionaldeterminante $\operatorname{det}\mathbf{J}$ im Integrationsmaß berücksichtigen:
+ \begin{align*}
+ 	D\eta = \operatorname{det}\mathbf{J} \prod_{n=1}^{\infty} \dd a_n
+ \end{align*}
+ Mit diesem Wissen können wir beginnen Gleichung (\ref{eqn:feynman-kac}) für den Harmonischen Oszillator auszuwerten:
+ \begin{align}
+ 	\braket{q_b,T}{q_a,0} &= \operatorname{e}^{\ihbar\mathcal{S}[q_{\text{cl}}]} \ \operatorname{det}\mathbf{J} \int \prod_{n=1}^{\infty} \dd a_n \  \operatorname{e}^{\ihbar\frac{m}{2} a_n^2 \lambda_n} \nonumber\\
+ 	&= \operatorname{e}^{\ihbar\mathcal{S}[q_{\text{cl}}]} \ \underbrace{\operatorname{det}\mathbf{J} \  \prod_{n=1}^{\infty} \sqrt{\frac{2\pi}{m\lambda_n}} \operatorname{e}^{i\frac{3\pi}{4}}}_{:= \ \xi(T)}
+ \end{align}
+ Der letzte Schritt folgt aus der Auswertung des Gauß-Integrals analog zur Herleitung der Feynman-Kac-Formel. \\
+ Wir wollen $\operatorname{det}\mathbf{J}$ eliminieren und $\xi(T)$ auswerten, indem wir die Lösung für ein freies Teilchen $\xi_{\text{frei}}(T)$, also für $\omega = 0$ benutzen. Diese lässt sich recht einfach bestimmen, wenn man analog verfährt und beachtet, dass nun $\eval{\lambda_n}_{\omega = 0} = \left(\frac{n\pi}{T}\right)^2$ gilt. \\
+ 
+Man findet:
+\begin{align}
+\xi_{\text{frei}}(T) = \sqrt{\frac{m}{2\pi T}}\operatorname{e}^{i\frac{3\pi}{4}} 	
+ \end{align} 
+ Damit finden wir folgenden Ausdruck für unser Problem:
+ \begin{align}
+ 	\xi(T) &= \xi_{\text{frei}}(T)\cdot\frac{\xi(T)}{\xi_{\text{frei}}(T)} \nonumber \\
+ 	&= \sqrt{\frac{m}{2\pi T}}\operatorname{e}^{i\frac{3\pi}{4}} \  \prod_{n=1}^{\infty}\sqrt{\frac{\eval{\lambda_n}_{\omega=0}}{\lambda_n}} \nonumber \\
+ 	&= \sqrt{\frac{m}{2\pi T}}\operatorname{e}^{i\frac{3\pi}{4}} \  \prod_{n=1}^{\infty} \left(1-\left(\frac{\omega T}{n\pi}\right)^2\right)^{-\frac{1}{2}} \nonumber \\
+ 	&= \sqrt{\frac{m}{2\pi T}}\operatorname{e}^{i\frac{3\pi}{4}} \left(\frac{\sin(\omega T)}{\omega T}\right)^{-\frac{1}{2}}
+ \end{align}
+ Alles zusammen führt uns auf die \textbf{Mehler-Formel} für den Harmonischen Oszillator:
+ \begin{align}
+ 	\braket{q_b,T}{q_a,0}= \sqrt{\frac{m\omega}{2\pi i\hbar \sin(\omega T)}} \exp\left(\frac{i m\omega}{2\hbar\sin(\omega T)}\left[(q_T^2+q_0^2)\cos(\omega T)- 2q_Tq_0\right] \right)
+ \end{align}
+ Um das resultierende Energiespektrum auszuwerten bilden wir die Spur des Zeitentwicklungsoperators: 
+ \begin{align}
+ 	\operatorname{Tr}(U(T,0)) &= \int_{-\infty}^{\infty} \dd q \braket{q,T}{q,0} \nonumber	\\
+&=  \sqrt{\frac{m\omega}{2\pi i \hbar\sin(\omega T)}} \int_{-\infty}^{\infty} \dd q  \exp\left(\frac{i m\omega}{2\hbar\sin(\omega T)}\left[2q^2(\cos(\omega T)- 1)\right] \right) \nonumber\\
+&= \sqrt{\frac{m\omega}{2\pi i \hbar\sin(\omega T)}}\sqrt{\frac{\pi\hbar\sin(\omega T)}{i m \omega(1-\cos(\omega T))}}\nonumber\\
+&= \frac{1}{2 i \sin\left(\frac{\omega T}{2}\right)} \nonumber\\
+&= \frac{\exp\left(- i \frac{\omega T}{2}\right)}{1-\exp(-i\omega T)}	\nonumber\\
+&= \sum_{k=0}^{\infty} \exp\left(-\frac{i}{\hbar}\hbar\omega\left(k+\frac{1}{2}\right)T\right)
+ \end{align}
+ Im Exponenten erkennen wir die bereits bekannten Eigenenergien des Harmonischen Oszillators, welche wir nun auch mit Hilfe des Pfadintegral-Formalismus hergeleitet haben.
