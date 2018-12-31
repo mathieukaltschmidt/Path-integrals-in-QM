@@ -22,7 +22,7 @@ Wir entwickeln das Wirkungsfunktional gemäß dem Ansatz
 \end{align}
 wobei $\frac{\delta^{(n)}\mathcal{S}[q_{\text{cl}} + \eta']}{\delta\eta'(t_1)\cdots\delta\eta'(t_n)}$ der Variation $n$-ter Ordnung des Wirkungsfunktionals entspricht. \\
 Aus dieser Entwicklung wird direkt ersichtlich, dass die Terme linear in $\eta$ und $\dot{\eta}$ in Glei-chung (\ref{eqn:wirkung}) vernachlässigt werden können, da per Definition die erste Variation der Wirkung für $q_{\text{cl}}$ verschwindet. \\
-Mit Hilfe dieses Ansatzes und unter Verwendung der Tatsache, dass alle Variation für Ordnungen höher $n=2$ gleich null sind erhalten wir für die Wirkung $\mathcal{S}[q]$:
+Mit Hilfe dieses Ansatzes und unter Verwendung der Tatsache, dass alle Variationen für Ordnungen höher $n=2$ gleich null sind erhalten wir für die Wirkung $\mathcal{S}[q]$:
 \begin{align}
 \mathcal{S}[q] &= \mathcal{S}[q_{\text{cl}}] + \frac{m}{2}\int_0^T \dd t \left[\dot{\eta}^2 - \omega^2\eta\right] \nonumber \\
 &= \mathcal{S}[q_{\text{cl}}] + \frac{m}{2}\int_0^T \dd t \ \eta\left[-\frac{\dd^2}{\dd t^2}-\omega^2\right]\eta \label{eqn:ew-problem}
@@ -54,7 +54,7 @@ löst. Einsetzen in Gleichung (\ref{eqn:ew-problem}) resultiert in
 \end{align}
  Hierbei handelt es sich um eine lineare Transformation. Aus diesem Grund müssen wir die auftretende Funktionaldeterminante $\operatorname{det}\mathbf{J}$ im Integrationsmaß berücksichtigen:
  \begin{align*}
- 	D\eta = \operatorname{det}\mathbf{J} \prod_{n=1}^{\infty} \dd a_n
+ 	\mathcal{D}\eta = \operatorname{det}\mathbf{J} \prod_{n=1}^{\infty} \dd a_n
  \end{align*}
  Mit diesem Wissen können wir beginnen Gleichung (\ref{eqn:feynman-kac}) für den Harmonischen Oszillator auszuwerten:
  \begin{align}

@@ -1,7 +1,25 @@
 \section{Der Pfadintegral-Formalismus}
-%TODO Historisches :-)
+Die Entwicklung des Formalismus began bereits in den 1920er Jahren mit ersten Arbeiten des deutschen Physikers \textbf{Gregor Wentzel}. Dessen Veröffentlichungen wurde aber kaum Beachtung geschenkt. \\
+Wie bereits zuvor angemerkt legten die Arbeiten \textbf{Paul Dirac} über die Bedeutung des Lagrangians und des Wirkungsfunktionals für die Quantenmechanik eine wichtige Grundlage für die Formulierung von Feynman, welche er schon im Rahmen seiner Doktorarbeit 1942 entwickelte und schlussendlich einige Jahre später 1948 publizierte. 
 
 \subsection{Feynman's Postulate}
+An dieser Stelle wollen wir kurz einen Blick auf die Originalarbeit \cite{Feynman1948} von Feynman aus dem Jahr 1948 werfen und dessen Postulate des Pfadintegral-Formalismus vorstellen. Die Herleitung im nachfolgenden Abschnitt basiert hauptsächlich auf \cite{WeigandQFT2014}. \\
+Die grundlegende Fragestellung mit der er sich beschäftigte war  die Analyse von Wahrscheinlichkeitsamplituden für Übergänge der Form $\ket{q_a,t_a}\rightarrow\ket{q_b,t_b}$ für $t_a<t_b$. \\
+Die Amplitude bezeichnet er als \textbf{Kernel}, mit
+\begin{align}
+		K(b,a) = \braket{q_b,t_b}{q_a,t_a} 
+			   = \sum_{\text{alle Pfade}}\phi[q(t)]
+\end{align}
+wobei für die Beiträge einzelner Pfade gilt:
+\begin{align}
+		\phi[q(t)] \sim N \cdot \exp\left(\frac{\mathrm{i}}{\hbar}\mathcal{S}[q(t)]\right) 
+\end{align} 	
+Hier wird auch schon die konzeptuell neue Idee des Formalismus deutlich, nämlich dass nun nicht wie zuvor in der Beschreibung der klassischen Mechanik nur der Pfad mit stationärer Wirkung zum Übergang beiträgt, sondern \textbf{alle möglichen Pfade} und zwar gleichwertig, gewichtet mit einer Phase welche proportional zum klassischen Wirkungsfunktional ist, wie bereits von Dirac vermutet. \\
+Die Wahrscheinlichkeit für den Übergang ergibt sich dann aus dem Betragsquadrat des Kernels:
+\begin{align}
+	 P(b,a) = \abs{K(b,a)}^2 
+\end{align}
+Wie wir später sehen werden liefert die Pfadintegral-Methode die gleichen Ergebnisse wie die anderen beiden Zugänge und enthält die klassische Mechanik als Grenzfall.
 \subsection{Allgemeine Herleitung}
 Ausgangspunkt unserer Herleitung ist die Auswertung der Übergangsamplitude:
 \begin{align}
@@ -18,7 +36,7 @@ Nach der \textit{Baker-Campbell-Hausdorff-Formel} haben die einzelnen Exponentia
 \begin{align}
 	\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t} = \operatorname{e}^{-\ihbar\frac{\hat{p}^2}{2m}\delta t}\operatorname{e}^{-\ihbar V(\hat{q})\delta t}\operatorname{e}^{\frac{1}{2\hbar^2}[\frac{\hat{p}^2}{2m},V(\hat{q})]\delta t^2} + \ \mathcal{O}(\delta t^3)
 \end{align}
-wobei $[\hat{A},\hat{B}] = \hat{A}\hat{B} - \hat{B}\hat{A}$ der Kommutator der beiden Operatoren ist. Aufgrund unserer Grenzwertbetrachtung für den Fall hoher $N$ wollen wir jedoch auch den Term $\mathcal{O}(\delta t^2)$ für die weitere Herleitung vernachlässigen. \\
+Aufgrund unserer Grenzwertbetrachtung für den Fall hoher $N$ wollen wir jedoch auch den Term $\mathcal{O}(\delta t^2)$ für die weitere Herleitung vernachlässigen. \\
 Wir fügen erneut Identitätsoperatoren ein, dieses Mal jedoch im Impulsraum und analysieren beispielhaft einen der Faktoren aus Gleichung (\ref{eqn:amplitude2}):
 \begin{align}
 	\bra{q_{k+1}}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_k} &= \int \dd p_k \bra{q_{k+1}}\operatorname{e}^{-\ihbar\frac{\hat{p}^2}{2m}\delta t}\ket{p_k}\bra{p_k}\operatorname{e}^{-\ihbar V(\hat{q})\delta t}\ket{q_k} \nonumber \\
