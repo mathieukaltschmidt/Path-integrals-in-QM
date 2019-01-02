@@ -1,6 +1,6 @@
 \section{Der Pfadintegral-Formalismus}
-Die Entwicklung des Formalismus began bereits in den 1920er Jahren mit ersten Arbeiten des deutschen Physikers \textbf{Gregor Wentzel}. Dessen Veröffentlichungen wurde aber kaum Beachtung geschenkt. \\
-Wie bereits zuvor angemerkt legten die Arbeiten \textbf{Paul Dirac} über die Bedeutung des Lagrangians und des Wirkungsfunktionals für die Quantenmechanik eine wichtige Grundlage für die Formulierung von Feynman, welche er schon im Rahmen seiner Doktorarbeit 1942 entwickelte und schlussendlich einige Jahre später 1948 publizierte. 
+Die Entwicklung des Formalismus began bereits in den 1920er Jahren mit ersten Arbeiten des deutschen Physikers Gregor Wentzel. Dessen Veröffentlichungen wurde aber kaum Beachtung geschenkt. \\
+Wie bereits zuvor angemerkt legten die Arbeiten Paul Dirac über die Bedeutung des Lagrangians und des Wirkungsfunktionals für die Quantenmechanik eine wichtige Grundlage für die Formulierung von Feynman, welche er schon im Rahmen seiner Doktorarbeit 1942 entwickelte und schlussendlich einige Jahre später 1948 publizierte. 
 
 \subsection{Feynman's Postulate}
 An dieser Stelle wollen wir kurz einen Blick auf die Originalarbeit \cite{Feynman1948} von Feynman aus dem Jahr 1948 werfen und dessen Postulate des Pfadintegral-Formalismus vorstellen. Die Herleitung im nachfolgenden Abschnitt basiert hauptsächlich auf \cite{WeigandQFT2014}. \\
@@ -25,7 +25,50 @@ Ausgangspunkt unserer Herleitung ist die Auswertung der Übergangsamplitude:
 \begin{align}
 	\braket{q_b,T}{q_a,0} = \bra{q_b}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}T}\ket{q_a} \label{eqn:amplitude1}
 \end{align}
-Wir teilen das Zeitintervall $[0,T]$ in $N+1$ Teilintervalle der Länge $\delta t = \frac{T}{N+1}$ was dazu führt, dass die Exponentialfunktion in $N+1$ Faktoren $\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}$ zerfällt. Interessant ist die Betrachtung dieser Zerlegung im Limes für hohe $N$. \\
+Wir teilen das Zeitintervall $[0,T]$ in $N+1$ Teilintervalle der Länge $\delta t = \frac{T}{N+1}$ was dazu führt, dass die Exponentialfunktion in $N+1$ Faktoren $\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}$ zerfällt. Interessant ist die Betrachtung dieser Zerlegung im Limes für hohe $N$. 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+
+%Koordinatensystem
+\draw[->, thick] (0,0) to (10,0);
+\node at (10.3,0) {\Large$q$};
+\draw[->, thick] (0,0) to (0,6.5);
+\node at (0,6.8) {\Large$t$};
+
+%Horizontale Linien
+\draw[-, thick, dashed] (0,1) to (10,1);
+\draw[-, thick, dashed] (0,2) to (10,2);
+\draw[-, thick, dashed] (0,3) to (10,3);
+\draw[-, thick, dashed] (0,4) to (10,4);
+\draw[-, thick, dashed] (0,5) to (10,5);
+\draw[-, thick, dashed] (0,6) to (10,6);
+
+
+%Punkte
+\node at (2.95,0.7) {\Large$a$};
+\filldraw (3,1)   circle (2pt);
+\filldraw (6,2)   circle (2pt);
+\filldraw (6.5,3)   circle (2pt);
+\filldraw (5,4)   circle (2pt);
+\filldraw (4,5)   circle (2pt);
+\filldraw (5.5,6)   circle (2pt);
+\node at (5.55,6.4) {\Large$b$};
+
+%Verbindungen
+\draw[-, thick] (3,1) to (6,2);
+\draw[-, thick] (6,2) to (6.5,3);
+\draw[-, thick] (6.5,3) to (5,4);
+\draw[-, thick] (5,4) to (4,5);
+\draw[-, thick] (4,5) to (5.5,6);
+
+%Markierung 
+\draw[<->, ultra thick, color = myred] (2.5,3) to (2.5,4);
+\node at (2.8,3.5) {\color{myred}\Large$\delta$t};
+
+\end{tikzpicture}
+\caption{Visualisierung der durchgeführten Zerlegung}
+\end{figure}
 Nun wollen wir zwischen jeden der Faktoren Identitätsoperatoren im Ortsraum einfügen. Diese sind von der Form 
 	$\mathrm{1\!l} = \int \dd q_k \ket{q_k}\bra{q_k}$ und überführen Gleichung (\ref{eqn:amplitude1}) in 
 \begin{align}

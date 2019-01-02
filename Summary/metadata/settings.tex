@@ -34,6 +34,13 @@
 \usepackage{adjustbox}
 \usepackage{grffile}
 
+%Tikz
+\usepackage{tikz}
+\usetikzlibrary{shapes, patterns, hobby}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{positioning,arrows}
+
 
 %geometry
 \geometry{
@@ -65,8 +72,7 @@
 \makeatletter
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE]{\footnotesize\nouppercase{\color{mydarkblue}\leftmark}}
-\fancyhead[RO]{\footnotesize\nouppercase{\color{mydarkblue}\rightmark}}
+\fancyhead[L]{\footnotesize\nouppercase{\color{mygray}\leftmark}}
 \fancyfoot[C]{- \thepage\hspace{3pt}-}
 \renewcommand{\headrulewidth}{0.2pt}
 \renewcommand{\footrulewidth}{0pt}

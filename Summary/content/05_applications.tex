@@ -1,7 +1,63 @@
 \section{Weiterführende Anwendungen}
-
+Wie bereits in der Rechnung zum Harmonischen Oszillator deutlich wurde, liefert der Pfadintegral-Formalismus zwar die gleichen Resultate wie die anderen Zugänge, die Rechnungen sind jedoch sehr aufwendig. Das Wasserstoff-Atom beispielsweise wurde erst knapp 30 Jahre nach Feynmans Originalarbeit im Pfadintegral-Formalismus gelöst. \\
+Große Anwendung finden Pfadintegrale jedoch in der Statistischen Physik und in der Quantenfeldtheorie, was nachfolgend anhand einiger Beispiele vorgestellt werden soll.
 \subsection{Die Wick-Rotation}
+Ein sehr nützliches mathematisches Hilfswerkzeug  ist die sog. Wick-Rotation, welche  es uns ermöglicht eine analytische Fortsetzung in die komplexe Zahlenebene durchzuführen. Hierzu wird eine Substitution der Form
+\begin{align}
+	t \longrightarrow \operatorname{e}^{-\mathrm{i}\varphi}\tau \qquad\qquad \varphi: 0 \rightarrow \frac{\pi}{2}
+\end{align}
+durchgeführt. 
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\filldraw[color=gray!20] (2.5,2.5) circle (2cm);
+\draw[dashed] (2.5,2.5) circle (2cm);
+\draw[->, myred, ultra thick] (4.5,2.5)  arc[start angle=0, end angle=-89,radius=2cm] -- (2.5,0.5);
+\draw[->, myred, ultra thick] (0.5,2.5)  arc[start angle=180, end angle=91,radius=2cm] -- (2.5,4.5);
+
+%Koordinatensystem mit Pfeilen
+\draw[->, thick] (0,2.5) to (5,2.5);
+\node at (5.7,2.5) {$\mathfrak{Re}(t)$};
+\draw[->, ultra thick] (0.49,2.5) to (0.5,2.5);
+\draw[->, ultra thick] (1.49,2.5) to (1.5,2.5);
+
+\draw[->, ultra thick] (3.49,2.5) to (3.5,2.5);
+\draw[->, ultra thick] (4.49,2.5) to (4.5,2.5);
+
+\draw[->, thick] (2.5,0) to (2.5,5);
+\node at (2.5,5.4) {$\mathfrak{Im}(t)$};
+\draw[->, ultra thick, color =myred] (2.5,3.76) to (2.5,3.75);
+\draw[->, ultra thick, color = myred] (2.5,1.26) to (2.5,1.25);
+
+\end{tikzpicture}
+\caption{Visualisierung der Wick-Rotation}
+\end{figure} 	
+Die Wick-Rotation führt uns zu den sog. Euklidischen Pfadintegralen, deren Anwendungsgebiete gleich noch einmal etwas genauer vorgestellt werden.
 
 \subsection{Statistische Physik}
-
+In der Statistischen Physik sind wir vor allem an der Kenntnis der Zustandssummen $Z$ interessiert, da sich aus ihnen sämtliche interessanten Größen ableiten lassen. \\
+Pfadintegrale liefern uns  eine neue Möglichkeit diese Zustandssummen zu bestimmen. 
+Wir betrachten nur Pfade, welche bei der selben Konfiguration starten und auch wieder enden:
+\begin{align}
+		Z = \int \mathcal{D}q \ \exp\left(-\frac{1}{\hbar}\mathcal{S}_{\text{eukl.}}[q]\right)
+\end{align}
+Dies entspricht genau der kanonischen Zustandssumme mit $\frac{1}{T} = \frac{k_B\tau}{\hbar}$ \\
+Insgesamt gilt demnach:
+\begin{align}
+		Z = \int \dd q \ U(q,\beta\hbar;q) = \sum_k\bra{k} \int_q \dd q \ \operatorname{e}^{-\beta E_k}\ket{q}\braket{q}{k} = \sum_k \operatorname{e}^{-\beta E_k}
+\end{align}
+wobei wie üblich $\beta = \frac{1}{k_B T}$.
 \subsection{Quantenfeldtheorie}
+Auch in der Quantenfeldtheorie wird man häufig mit Pfadintegralen konfrontiert. Man berechnet zum Beispiel \textbf{Erwartungswerte} von Funktionalen $F[\phi]$:
+\begin{align}
+	\langle F \rangle = \frac{\int\mathcal{D}\phi \ F[\phi]\ \operatorname{e}^{-\frac{1}{\hbar}\mathcal{S}[\phi]}}{\int\mathcal{D}\phi' \ \operatorname{e}^{-\frac{1}{\hbar}\mathcal{S}[\phi']}}
+\end{align}
+Oder die \textbf{Korrelationsfunktionen}:
+\begin{align}
+\left\langle \phi(x_1) \phi(x_2) \ldots \phi(x_n)\right\rangle
+=\frac{\int \mathcal D \phi \; e^{-\frac{1}{\hbar}\mathcal{S}[\phi]}\phi(x_1)\ldots \phi(x_n)}{\int \mathcal D \phi' \; e^{-\frac{1}{\hbar}\mathcal{S}[\phi']}}
+\end{align}
+In der Feldtheorie  wird hierbei die Variation aller möglichen Feldkonfigurationen anstelle der Pfade betrachtet. \\
+
+Diese abschließend vorgestellten Beispiele sollen nur einen kleinen Ausblick auf die zahlreichen Anwendungen für Pfadintegrale in der theoretischen Physik liefern. 
