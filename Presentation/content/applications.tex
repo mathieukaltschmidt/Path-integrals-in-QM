@@ -6,7 +6,7 @@ Wir wollen nun das Erlernte benutzen um die Energie-Eigenwerte für das  Potenti
 \end{block}
 Wir kennen den Lagrangian für dieses Problem: 
 \begin{align*}
-	\mathcal{L} = \frac{m}{2}\dot{q}^2 - \frac{m\omega^2q^2}{2} 
+	\mathcal{L} = \frac{m}{2}\dot{q}^2 - \frac{m\omega^2}{2} q^2
 \end{align*}
 
 Wir schreiben die Pfade als Abweichungen vom klassischen Pfad:
@@ -44,7 +44,7 @@ Wir bilden die Spur des Zeitentwicklungsoperators:
 &=  \sqrt{\frac{m\omega}{2\pi\mathrm{i}\hbar\sin(\omega T)}} \int_{-\infty}^{\infty} \dd q  \exp\left(\frac{\mathrm{i}m\omega}{2\hbar\sin(\omega T)}\left[2q^2(\cos(\omega T)- 1)\right] \right) \\
 &= \frac{1}{2\mathrm{i}\sin\left(\frac{\omega T}{2}\right)} \\
 &= \frac{\exp\left(-\mathrm{i}\frac{\omega T}{2}\right)}{1-\exp(-\mathrm{i}\omega T)}	\\
-&= \sum_{k=0}^{\infty} \exp\left(-\frac{\mathrm{i}}{\hbar}\hbar\omega\left(k+\frac{1}{2}\right)\right)
+&= \sum_{k=0}^{\infty} \exp\left(-\frac{\mathrm{i}}{\hbar}\hbar\omega\left(k+\frac{1}{2}\right)T\right)
 \end{align*}
 Dies liefert uns das gewünschte, bereits bekannte Energie-Spektrum des Harmonischen Oszillators!
 
@@ -128,7 +128,7 @@ Als \textbf{Wick-Rotation} bezeichnen wir die analytische Fortsetzung
 
 %Koordinatensystem mit Pfeilen
 \draw[->, thick] (0,2.5) to (5,2.5);
-\node at (5.7,2.5) {$\mathfrak{Re}(q^0)$};
+\node at (5.7,2.5) {$\mathfrak{Re}(t)$};
 \draw[->, ultra thick] (0.49,2.5) to (0.5,2.5);
 \draw[->, ultra thick] (1.49,2.5) to (1.5,2.5);
 
@@ -136,7 +136,7 @@ Als \textbf{Wick-Rotation} bezeichnen wir die analytische Fortsetzung
 \draw[->, ultra thick] (4.49,2.5) to (4.5,2.5);
 
 \draw[->, thick] (2.5,0) to (2.5,5);
-\node at (2.5,5.4) {$\mathfrak{Im}(q^0)$};
+\node at (2.5,5.4) {$\mathfrak{Im}(t)$};
 \draw[->, ultra thick, color =myred] (2.5,3.76) to (2.5,3.75);
 \draw[->, ultra thick, color = myred] (2.5,1.26) to (2.5,1.25);
 
@@ -167,12 +167,12 @@ In der Quantenfeldtheorie wird man häufig mit Pfadintegralen konfrontiert. \\
 \begin{itemize}
 	\item Man berechnet zum Beispiel \textbf{Erwartungswerte}:
 \begin{align*}
-	\langle F \rangle = \frac{\int\mathcal{D}\phi \ F[\phi]\ \operatorname{e}^{-\mathcal{S}[\phi]}}{\int\mathcal{D}\phi' \ \operatorname{e}^{-\mathcal{S}[\phi']}}
+	\langle F \rangle = \frac{\int\mathcal{D}\phi \ F[\phi]\ \operatorname{e}^{-\frac{1}{\hbar}\mathcal{S}[\phi]}}{\int\mathcal{D}\phi' \ \operatorname{e}^{-\frac{1}{\hbar}\mathcal{S}[\phi']}}
 \end{align*}
 \item oder die sog. \textbf{Korrelationsfunktionen}:
 \begin{align*}
 \left\langle \phi(x_1) \phi(x_2) \ldots \phi(x_n)\right\rangle
-=\frac{\int \mathcal D \phi \; e^{-\mathcal{S}[\phi]}\phi(x_1)\ldots \phi(x_n)}{\int \mathcal D \phi' \; e^{-\mathcal{S}[\phi']}}
+=\frac{\int \mathcal D \phi \; e^{-\frac{1}{\hbar}\mathcal{S}[\phi]}\phi(x_1)\ldots \phi(x_n)}{\int \mathcal D \phi' \; e^{-\frac{1}{\hbar}\mathcal{S}[\phi']}}
 \end{align*}
 \end{itemize}
 \end{frame}
