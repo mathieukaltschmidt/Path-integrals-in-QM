@@ -2,9 +2,9 @@
 Wie bereits in der Rechnung zum Harmonischen Oszillator deutlich wurde, liefert der Pfadintegral-Formalismus zwar die gleichen Resultate wie die anderen Zugänge, die Rechnungen sind jedoch sehr aufwendig. Das Wasserstoff-Atom beispielsweise wurde erst knapp 30 Jahre nach Feynmans Originalarbeit im Pfadintegral-Formalismus gelöst. \\
 Große Anwendung finden Pfadintegrale jedoch in der Statistischen Physik und in der Quantenfeldtheorie, was nachfolgend anhand einiger Beispiele vorgestellt werden soll.
 \subsection{Die Wick-Rotation}
-Ein sehr nützliches mathematisches Hilfswerkzeug  ist die sog. Wick-Rotation, welche  es uns ermöglicht eine analytische Fortsetzung in die komplexe Zahlenebene durchzuführen. Hierzu wird eine Substitution der Form
+Ein sehr nützliches mathematisches Hilfswerkzeug  ist die sog. Wick-Rotation, welche  es uns ermöglicht, eine analytische Fortsetzung in die komplexe Zahlenebene durchzuführen. Hierzu wird eine Substitution der Form
 \begin{align}
-	t \longrightarrow \operatorname{e}^{-\mathrm{i}\varphi}\tau \qquad\qquad \varphi: 0 \rightarrow \frac{\pi}{2}
+	t \longrightarrow \operatorname{e}^{-i\varphi}\tau \qquad\qquad \varphi: 0 \rightarrow \frac{\pi}{2}
 \end{align}
 durchgeführt. 
 
@@ -37,8 +37,8 @@ Die Wick-Rotation führt uns zu den sog. Euklidischen Pfadintegralen, deren Anwe
 
 \subsection{Statistische Physik}
 In der Statistischen Physik sind wir vor allem an der Kenntnis der Zustandssummen $Z$ interessiert, da sich aus ihnen sämtliche interessanten Größen ableiten lassen. \\
-Pfadintegrale liefern uns  eine neue Möglichkeit diese Zustandssummen zu bestimmen. 
-Wir betrachten nur Pfade, welche bei der selben Konfiguration starten und auch wieder enden:
+Pfadintegrale liefern uns  eine neue Möglichkeit, diese Zustandssummen zu bestimmen. 
+Wir betrachten nur Pfade, welche bei derselben Konfiguration starten und auch wieder enden:
 \begin{align}
 		Z = \int \mathcal{D}q \ \exp\left(-\frac{1}{\hbar}\mathcal{S}_{\text{eukl.}}[q]\right)
 \end{align}
@@ -56,7 +56,7 @@ Auch in der Quantenfeldtheorie wird man häufig mit Pfadintegralen konfrontiert.
 Oder die \textbf{Korrelationsfunktionen}:
 \begin{align}
 \left\langle \phi(x_1) \phi(x_2) \ldots \phi(x_n)\right\rangle
-=\frac{\int \mathcal D \phi \; e^{-\frac{1}{\hbar}\mathcal{S}[\phi]}\phi(x_1)\ldots \phi(x_n)}{\int \mathcal D \phi' \; e^{-\frac{1}{\hbar}\mathcal{S}[\phi']}}
+=\frac{\int \mathcal D \phi \; \operatorname{e}^{-\frac{1}{\hbar}\mathcal{S}[\phi]}\phi(x_1)\ldots \phi(x_n)}{\int \mathcal D \phi' \; \operatorname{e}^{-\frac{1}{\hbar}\mathcal{S}[\phi']}}
 \end{align}
 In der Feldtheorie  wird hierbei die Variation aller möglichen Feldkonfigurationen anstelle der Pfade betrachtet. \\
 

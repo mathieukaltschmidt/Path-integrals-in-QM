@@ -1,5 +1,5 @@
 \section{Der Harmonische Oszillator}
-Wir wollen nun das Erlernte benutzen um das Eigenenergie-Spektrum für das  Potential des harmonischen Oszillators zu bestimmen. \\
+Wir wollen nun das Erlernte benutzen, um das Eigenenergie-Spektrum für das  Potential des Harmonischen Oszillators zu bestimmen. \\
 Wir kennen den Lagrangian für dieses Problem: 
 \begin{align}
 	\mathcal{L} = \frac{m}{2}\dot{q}^2 - \frac{m\omega^2}{2}q^2 \label{eqn:lagrangian}
@@ -22,7 +22,7 @@ Wir entwickeln das Wirkungsfunktional gemäß dem Ansatz
 \end{align}
 wobei $\frac{\delta^{(n)}\mathcal{S}[q_{\text{cl}} + \eta']}{\delta\eta'(t_1)\cdots\delta\eta'(t_n)}$ der Variation $n$-ter Ordnung des Wirkungsfunktionals entspricht. \\
 Aus dieser Entwicklung wird direkt ersichtlich, dass die Terme linear in $\eta$ und $\dot{\eta}$ in Glei-chung (\ref{eqn:wirkung}) vernachlässigt werden können, da per Definition die erste Variation der Wirkung für $q_{\text{cl}}$ verschwindet. \\
-Mit Hilfe dieses Ansatzes und unter Verwendung der Tatsache, dass alle Variationen für Ordnungen höher $n=2$ gleich null sind erhalten wir für die Wirkung $\mathcal{S}[q]$:
+Mit Hilfe dieses Ansatzes und unter Verwendung der Tatsache, dass alle Variationen für Ordnungen höher $n=2$ gleich null sind, erhalten wir für die Wirkung $\mathcal{S}[q]$:
 \begin{align}
 \mathcal{S}[q] &= \mathcal{S}[q_{\text{cl}}] + \frac{m}{2}\int_0^T \dd t \left[\dot{\eta}^2 - \omega^2\eta\right] \nonumber \\
 &= \mathcal{S}[q_{\text{cl}}] + \frac{m}{2}\int_0^T \dd t \ \eta\left[-\frac{\dd^2}{\dd t^2}-\omega^2\right]\eta \label{eqn:ew-problem}
@@ -56,7 +56,7 @@ löst. Einsetzen in Gleichung (\ref{eqn:ew-problem}) resultiert in
  \begin{align*}
  	\mathcal{D}\eta = \operatorname{det}\mathbf{J} \prod_{n=1}^{\infty} \dd a_n
  \end{align*}
- Mit diesem Wissen können wir beginnen Gleichung (\ref{eqn:feynman-kac}) für den Harmonischen Oszillator auszuwerten:
+ Mit diesem Wissen können wir beginnen, Gleichung (\ref{eqn:feynman-kac}) für den Harmonischen Oszillator auszuwerten:
  \begin{align}
  	\braket{q_b,T}{q_a,0} &= \operatorname{e}^{\ihbar\mathcal{S}[q_{\text{cl}}]} \ \operatorname{det}\mathbf{J} \int \prod_{n=1}^{\infty} \dd a_n \  \operatorname{e}^{\ihbar\frac{m}{2} a_n^2 \lambda_n} \nonumber\\
  	&= \operatorname{e}^{\ihbar\mathcal{S}[q_{\text{cl}}]} \ \underbrace{\operatorname{det}\mathbf{J} \  \prod_{n=1}^{\infty} \sqrt{\frac{2\pi}{m\lambda_n}} \operatorname{e}^{i\frac{3\pi}{4}}}_{:= \ \xi(T)}
@@ -75,13 +75,14 @@ Man findet:
  	&= \sqrt{\frac{m}{2\pi T}}\operatorname{e}^{i\frac{3\pi}{4}} \  \prod_{n=1}^{\infty} \left(1-\left(\frac{\omega T}{n\pi}\right)^2\right)^{-\frac{1}{2}} \nonumber \\
  	&= \sqrt{\frac{m}{2\pi T}}\operatorname{e}^{i\frac{3\pi}{4}} \left(\frac{\sin(\omega T)}{\omega T}\right)^{-\frac{1}{2}}
  \end{align}
+ \\
  Alles zusammen führt uns auf die \textbf{Mehler-Formel} für den Harmonischen Oszillator:
  \begin{align}
  	\braket{q_b,T}{q_a,0}= \sqrt{\frac{m\omega}{2\pi i\hbar \sin(\omega T)}} \exp\left(\frac{i m\omega}{2\hbar\sin(\omega T)}\left[(q_T^2+q_0^2)\cos(\omega T)- 2q_Tq_0\right] \right)
  \end{align}
- Um das resultierende Energiespektrum auszuwerten bilden wir die Spur des Zeitentwicklungsoperators: 
+ Um das resultierende Energiespektrum auszuwerten, bilden wir die Spur des Zeitentwicklungsoperators: 
  \begin{align}
- 	\operatorname{Tr}(U(T,0)) &= \int_{-\infty}^{\infty} \dd q \braket{q,T}{q,0} \nonumber	\\
+ 	\operatorname{Tr}(\hat{U}(T,0)) &= \int_{-\infty}^{\infty} \dd q \braket{q,T}{q,0} \nonumber	\\
 &=  \sqrt{\frac{m\omega}{2\pi i \hbar\sin(\omega T)}} \int_{-\infty}^{\infty} \dd q  \exp\left(\frac{i m\omega}{2\hbar\sin(\omega T)}\left[2q^2(\cos(\omega T)- 1)\right] \right) \nonumber\\
 &= \sqrt{\frac{m\omega}{2\pi i \hbar\sin(\omega T)}}\sqrt{\frac{\pi\hbar\sin(\omega T)}{i m \omega(1-\cos(\omega T))}}\nonumber\\
 &= \frac{1}{2 i \sin\left(\frac{\omega T}{2}\right)} \nonumber\\

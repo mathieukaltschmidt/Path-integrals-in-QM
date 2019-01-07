@@ -1,6 +1,6 @@
 \section{Das Wirkungsprinzip in der klassischen Mechanik}
 Die ersten Konfrontationen mit theoretisch-physikalischen Problemen treten im Studium in der klassischen und analytischen Mechanik auf. Genauer gesagt ist man zunächst einmal interessiert an den Bewegungsgleichungen beziehungsweise an den Trajektorien des untersuchten Systems, welche dessen zeitliche Entwicklung deterministisch vorhersagen. \\
-Die Trajektorien ergeben sich hierbei aus dem \textbf{Hamiltonschen Wirkungsprinzip} welches besagt, dass für jedes mechanische System eine Funktion existiert, die sog. \textbf{Lagrange-Funktion} $\mathcal{L}(q(t),\dot{q}(t),t)$ so dass gilt: \\
+Die Trajektorien ergeben sich hierbei aus dem \textbf{Hamiltonschen Wirkungsprinzip}, welches besagt, dass für jedes mechanische System eine Funktion existiert, die sog. \textbf{Lagrange-Funktion} $\mathcal{L}(q(t),\dot{q}(t),t)$, so dass gilt: \\
 
 Die physikalische Bewegung aus einer Lage $q_a$ bei $t = t_a$ in eine Lage $q_b$ bei $t = t_b$ verläuft so, dass das Wirkungsfunktional
 \begin{align}
@@ -16,13 +16,13 @@ Das Ausführen dieser Variation liefert die bekannten \textbf{Euler-Lagrange-Gle
 		\frac{\dd}{\dd t}\frac{\partial \mathcal{L}}{\partial \dot{q}} - \frac{\partial \mathcal{L}}{\partial q} = 0
 \end{align}
 aus deren Lösung wir die gesuchten Bewegungsgleichungen erhalten. \\
-Bereits 1933 hat Paul Dirac auf die besondere Bedeutung der Lagrange-Funktion sowie des Wirkungsfunktionals in der klassischen Mechanik sowie bei der Beschreibung von quantenmechanischen Übergangsamplituden $\braket{q_b,t_b}{q_a,t_a}$ hingewiesen \cite{Dirac1934}. \\
+Bereits 1933 hat Paul Dirac auf die besondere Bedeutung sowohl der Lagrange-Funktion, als auch des Wirkungsfunktionals in der klassischen Mechanik sowie bei der Beschreibung von quantenmechanischen Übergangsamplituden $\braket{q_b,t_b}{q_a,t_a}$ hingewiesen \cite{Dirac1934}. \\
 Wir werden sehen, dass Richard Feynman diese grundlegenden Konzepte sowie Diracs Ideen für seine Pfadintegral-Formulierung der Quantenmechanik einige Jahre später aufgegriffen hat.
 
 \section{Bisherige Zugänge zur Quantenmechanik}
 Eine der großen Revolutionen der modernen Physik im 20. Jahrhundert war mit Sicherheit die fortschreitende Entwicklung der Quantenmechanik. \\
-Die im ersten Teil bereits angesprochenen, deterministischen Bewegungsgleichungen zur Beschreibung makroskopischer, mechanischer Probleme wurden ergänzt durch einen Formalismus der den Anspruch hat, auch die Dynamik von mikroskopischen Prozessen und Systemen zu beschreiben und die klassischen Gleichungen als Grenzfall enthält. \\
-Die grundlegenden Axiome der Quantenmechanik wie wir sie bereits kennengelernt haben lassen sich wie folgt zusammenfassen:
+Die im ersten Teil bereits angesprochenen, deterministischen Bewegungsgleichungen zur Beschreibung makroskopischer, mechanischer Probleme wurden ergänzt durch einen Formalismus, der den Anspruch hat, auch die Dynamik von mikroskopischen Prozessen und Systemen zu beschreiben und die klassischen Gleichungen als Grenzfall zu enthalten. \\
+Die grundlegenden Axiome der Quantenmechanik, wie wir sie bereits kennengelernt haben, lassen sich wie folgt zusammenfassen:
 \begin{enumerate}
 	\item Der Zustand eines physikalischen Systems wird vollständig durch einen Hilbertraum-Vektor $\ket{\psi} \in \mathcal{H}$ bestimmt.
 	\item Jeder physikalischen Observablen ist ein hermitescher Operator $\hat{A}$ zugeordnet und umgekehrt. Die Eigenwerte sind die möglichen Messergebnisse.
@@ -36,21 +36,21 @@ Die grundlegenden Axiome der Quantenmechanik wie wir sie bereits kennengelernt h
 		\langle \hat{A} \hspace{2pt} \rangle = \bra{\psi}\hat{A}\ket{\psi}
 	\end{align}
  	 Wird der Eigenwert $A_i$ gemessen, so geht das System in den entsprechenden Eigenzustand über. Man spricht auch vom Kollaps der Wellenfunktion.
- 	 \item  Die Zeitentwicklung wird durch einen unitären Zeitentwicklungsoperator $U(t_b, t_a)$ beschrieben.
+ 	 \item  Die Zeitentwicklung wird durch einen unitären Zeitentwicklungsoperator $\hat{U}(t_b, t_a)$ beschrieben.
 \end{enumerate}
-Die beiden gängigsten Interpretation der Quantenmechanik mit denen wir bereits konfrontiert wurden sind zum Einen die \textbf{Matrizenmechanik nach Heisenberg}, welche durch die \textbf{Heisenberg-Gleichung}
+Die beiden gängigsten Interpretationen der Quantenmechanik, mit denen wir bereits konfrontiert wurden, sind zum Einen die \textbf{Matrizenmechanik nach Heisenberg}, welche durch die \textbf{Heisenberg-Gleichung}
 \begin{align}
 	\frac{\dd\hat{A}_{\text{H}}(t)}{\dd t} = \frac{i}{\hbar}\left[\hat{\text{H}},\hat{A}_{\text{H}}\right] + \left(\partial_t \hat{A}_{\text{S}}\right)_{\text{H}}
 \end{align}
- charakterisiert wird. Hier ist $\left[\hat{A},\hat{B}\right] = \hat{A}\hat{B} - \hat{B}\hat{A}$ der Kommutator der beiden Operatoren. \\
+ charakterisiert wird. Hier ist $\left[\hat{A},\hat{B}\right] = \hat{A}\hat{B} - \hat{B}\hat{A}$ der Kommutator der beiden Operatoren und $\hat{\text{H}}$ der zugehörige Hamilton-Operator des Systems. \\
  
 Zum Anderen haben wir die \textbf{Wellenmechanik nach Schrödinger} mit der \textbf{Schrödinger-Gleichung}
 \begin{align}
-		\mathrm{i}\hbar \frac{\partial}{\partial t} \ket{\psi(t)} = \hat{\text{H}} \ket{\psi(t)}
+		i\hbar \frac{\partial}{\partial t} \ket{\psi(t)} = \hat{\text{H}} \ket{\psi(t)}
 	\end{align}
 kennengelernt. \\
-Die Verbindung zwischen den beiden Interpretation ist durch den unitären Zeitentwicklungsoperator gegeben:
+Die Verbindung zwischen den beiden Interpretationen ist durch den unitären Zeitentwicklungsoperator gegeben:
 \begin{align}
-	\ket{\psi,t}_{\text{H}} = \ U^{\dagger}(t_b,t_a)\ket{\psi(t)}_{\text{S}}
+	\ket{\psi,t}_{\text{H}} = \ \hat{U}^{\dagger}(t_b,t_a)\ket{\psi(t)}_{\text{S}}
 \end{align}
 Wir wollen nun im nächsten Abschnitt einen alternativen Zugang zur Quantenmechanik, den bereits zuvor angesprochenen Pfadintegral-Formalismus, motivieren und herleiten.

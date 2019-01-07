@@ -1,10 +1,10 @@
 \section{Der Pfadintegral-Formalismus}
-Die Entwicklung des Formalismus began bereits in den 1920er Jahren mit ersten Arbeiten des deutschen Physikers Gregor Wentzel. Dessen Veröffentlichungen wurde aber kaum Beachtung geschenkt. \\
-Wie bereits zuvor angemerkt legten die Arbeiten Paul Dirac über die Bedeutung des Lagrangians und des Wirkungsfunktionals für die Quantenmechanik eine wichtige Grundlage für die Formulierung von Feynman, welche er schon im Rahmen seiner Doktorarbeit 1942 entwickelte und schlussendlich einige Jahre später 1948 publizierte. 
+Die Entwicklung des Formalismus begann bereits in den 1920er Jahren mit ersten Arbeiten des deutschen Physikers Gregor Wentzel. Dessen Veröffentlichungen wurde aber kaum Beachtung geschenkt. \\
+Wie bereits zuvor angemerkt, legten die Arbeiten Paul Diracs über die Bedeutung des Lagrangians und des Wirkungsfunktionals für die Quantenmechanik eine wichtige Grundlage für die Formulierung von Feynman, welche er schon im Rahmen seiner Doktorarbeit 1942 entwickelte und schlussendlich einige Jahre später 1948 publizierte. 
 
-\subsection{Feynman's Postulate}
+\subsection{Feynmans Postulate}
 An dieser Stelle wollen wir kurz einen Blick auf die Originalarbeit \cite{Feynman1948} von Feynman aus dem Jahr 1948 werfen und dessen Postulate des Pfadintegral-Formalismus vorstellen. Die Herleitung im nachfolgenden Abschnitt basiert hauptsächlich auf \cite{WeigandQFT2014}. \\
-Die grundlegende Fragestellung mit der er sich beschäftigte war  die Analyse von Wahrscheinlichkeitsamplituden für Übergänge der Form $\ket{q_a,t_a}\rightarrow\ket{q_b,t_b}$ für $t_a<t_b$. \\
+Die grundlegende Fragestellung mit der er sich beschäftigte war, die Analyse von Wahrscheinlichkeitsamplituden für Übergänge der Form $\ket{q_a,t_a}\rightarrow\ket{q_b,t_b}$ für $t_a<t_b$. \\
 Die Amplitude bezeichnet er als \textbf{Kernel}, mit
 \begin{align}
 		K(b,a) = \braket{q_b,t_b}{q_a,t_a} 
@@ -12,20 +12,20 @@ Die Amplitude bezeichnet er als \textbf{Kernel}, mit
 \end{align}
 wobei für die Beiträge einzelner Pfade gilt:
 \begin{align}
-		\phi[q(t)] \sim N \cdot \exp\left(\frac{\mathrm{i}}{\hbar}\mathcal{S}[q(t)]\right) 
+		\phi[q(t)] \sim N \cdot \exp\left(\frac{i}{\hbar}\mathcal{S}[q(t)]\right) 
 \end{align} 	
-Hier wird auch schon die konzeptuell neue Idee des Formalismus deutlich, nämlich dass nun nicht wie zuvor in der Beschreibung der klassischen Mechanik nur der Pfad mit stationärer Wirkung zum Übergang beiträgt, sondern \textbf{alle möglichen Pfade} und zwar gleichwertig, gewichtet mit einer Phase welche proportional zum klassischen Wirkungsfunktional ist, wie bereits von Dirac vermutet. \\
+Hier wird auch schon die konzeptuell neue Idee des Formalismus deutlich, nämlich dass nun nicht wie zuvor in der Beschreibung der klassischen Mechanik nur der Pfad mit stationärer Wirkung zum Übergang beiträgt, sondern \textbf{alle möglichen Pfade}. Hierbei tragen alle Pfade gleichwertig bei, sie sind jedoch  mit einer Phase gewichtet, welche proportional zum klassischen Wirkungsfunktional ist, wie bereits von Dirac vermutet. \\
 Die Wahrscheinlichkeit für den Übergang ergibt sich dann aus dem Betragsquadrat des Kernels:
 \begin{align}
 	 P(b,a) = \abs{K(b,a)}^2 
 \end{align}
-Wie wir später sehen werden liefert die Pfadintegral-Methode die gleichen Ergebnisse wie die anderen beiden Zugänge und enthält die klassische Mechanik als Grenzfall.
+Wie wir später sehen werden, liefert die Pfadintegral-Methode die gleichen Ergebnisse wie die anderen beiden Zugänge und enthält die klassische Mechanik als Grenzfall.
 \subsection{Allgemeine Herleitung}
 Ausgangspunkt unserer Herleitung ist die Auswertung der Übergangsamplitude:
 \begin{align}
 	\braket{q_b,T}{q_a,0} = \bra{q_b}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}T}\ket{q_a} \label{eqn:amplitude1}
 \end{align}
-Wir teilen das Zeitintervall $[0,T]$ in $N+1$ Teilintervalle der Länge $\delta t = \frac{T}{N+1}$ was dazu führt, dass die Exponentialfunktion in $N+1$ Faktoren $\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}$ zerfällt. Interessant ist die Betrachtung dieser Zerlegung im Limes für hohe $N$. 
+Wir teilen das Zeitintervall $[0,T]$ in $N+1$ Teilintervalle der Länge $\delta t = \frac{T}{N+1}$, was dazu führt, dass die Exponentialfunktion in $N+1$ Faktoren $\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}$ zerfällt. Interessant ist die Betrachtung dieser Zerlegung im Limes für hohe $N$. 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
@@ -69,7 +69,7 @@ Wir teilen das Zeitintervall $[0,T]$ in $N+1$ Teilintervalle der Länge $\delta 
 \end{tikzpicture}
 \caption{Visualisierung der durchgeführten Zerlegung}
 \end{figure}
-Nun wollen wir zwischen jeden der Faktoren Identitätsoperatoren im Ortsraum einfügen. Diese sind von der Form 
+Nun wollen wir zwischen jedem der Faktoren Identitätsoperatoren im Ortsraum einfügen. Diese sind von der Form 
 	$\mathrm{1\!l} = \int \dd q_k \ket{q_k}\bra{q_k}$ und überführen Gleichung (\ref{eqn:amplitude1}) in 
 \begin{align}
 	\braket{q_b,T}{q_a,0} = \lim_{N\rightarrow\infty} \int \prod_{k=1}^{N} \dd q_k \bra{q_b}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_N}\bra{q_N}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_{N-1}} \cdots \bra{q_1}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_a} \label{eqn:amplitude2}
@@ -84,7 +84,7 @@ Wir fügen erneut Identitätsoperatoren ein, dieses Mal jedoch im Impulsraum und
 \begin{align}
 	\bra{q_{k+1}}\operatorname{e}^{-\ihbar\hat{\operatorname{H}}\delta t}\ket{q_k} &= \int \dd p_k \bra{q_{k+1}}\operatorname{e}^{-\ihbar\frac{\hat{p}^2}{2m}\delta t}\ket{p_k}\bra{p_k}\operatorname{e}^{-\ihbar V(\hat{q})\delta t}\ket{q_k} \nonumber \\
 	&= \int \dd p_k \operatorname{e}^{-\ihbar\left(\frac{p_k^2}{2m} +V(q_k)\right)\delta t}\bra{q_{k+1}}\ket{p_k}\bra{p_k}\ket{q_k} \nonumber \\
-	&= \int \frac{\dd p_k}{2\pi} \operatorname{e}^{-\ihbar \operatorname{H}(p_k,q_k)\delta t} \operatorname{e}^{-\ihbar(q_{k+1}-q_k)p_k}
+	&= \int \frac{\dd p_k}{2\pi} \operatorname{e}^{-\ihbar \operatorname{H}(p_k,q_k)\delta t} \operatorname{e}^{\ihbar(q_{k+1}-q_k)p_k}
 \end{align}
 Der letzte Umformungsschritt begründet sich aus der Relation zwischen der Basis im Orts- und Impulsraum, welche durch die Fourier-Transformation gegeben ist und die folgende Form hat: $\braket{p_k}{q_k} = \frac{1}{\sqrt{2\pi}} \operatorname{e}^{-\ihbar p_kq_k}$. \\
 Setzen wir dieses Ergebnis in Gleichung (\ref{eqn:amplitude2}) ein, so erhalten wir: 
@@ -121,4 +121,4 @@ kennen. Mit diesem Wissen können wir durch einen mathematischen Trick, eine ana
 	 &= \int_{q_0}^{q_T} \mathcal{D}q(t) \exp\left(\ihbar \mathcal{S}(q,\dot{q})\right) \label{eqn:feynman-kac}
  \end{align}
  Das Integrationsmaß berücksichtigt hierbei die Information aus der $p$-Integration, welche im Vorfaktor $\gamma$ steckt. \\
- Wir dürfen an dieser Stelle den Lagrangian $\mathcal{L}$ anstelle des Ausdrucks \ $pq - \operatorname{H}(p,q)$ schreiben, welcher zuvor noch nicht als Legendre-Transformation angesehen werden konnte, da wir zuerst die $p$-Integration ausführen mussten um die extremalisierenden Charakter der Legendre-Transformation zu berücksichtigen  und eine Funktion von $q$ und $\dot{q}$ zu erhalten. Hier is auch die Bedeutung des quadratisch in $p$ angesetzten kinetischen Terms im Hamiltonian eingegangen. 
+ Wir dürfen an dieser Stelle den Lagrangian $\mathcal{L}$ anstelle des Ausdrucks \ $pq - \operatorname{H}(p,q)$ schreiben, welcher zuvor noch nicht als Legendre-Transformation angesehen werden konnte, da wir zuerst die $p$-Integration ausführen mussten, um den extremalisierenden Charakter der Legendre-Transformation zu berücksichtigen  und eine Funktion von $q$ und $\dot{q}$ zu erhalten. Hier ist auch die Bedeutung des quadratisch in $p$ angesetzten kinetischen Terms im Hamiltonian eingegangen. 
